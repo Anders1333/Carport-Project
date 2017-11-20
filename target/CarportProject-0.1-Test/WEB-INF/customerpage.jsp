@@ -15,5 +15,9 @@
       
         <h1>Hello <%=request.getParameter( "username" )%> </h1>
         You are now logged in as a customer of our wonderful site.
+        
+        <a href="./inputpage.jsp">Input page</a>
+        
+        
     </body>
 </html>

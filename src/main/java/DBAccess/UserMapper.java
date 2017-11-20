@@ -40,7 +40,7 @@ public class UserMapper {
     public static User login( String username, String password ) throws CarportException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT User_id, User_role FROM Users "
+            String SQL = "SELECT User_role FROM Users "
                     + "WHERE User_name=? AND User_password=?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, username );
@@ -48,9 +48,9 @@ public class UserMapper {
             ResultSet rs = ps.executeQuery();
             if ( rs.next() ) {
                 String role = rs.getString( "User_role" );
-                int id = rs.getInt( "User_id" );
+               
                 User user = new User( username, password, role );
-                user.setId( id );
+            
                 return user;
             } else {
                 throw new CarportException( "Could not validate user" );
