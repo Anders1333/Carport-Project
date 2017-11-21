@@ -21,17 +21,13 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO Users (User_name, User_password, User_phone, User_email, User_role) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
+            PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString(1,user.getUsername());
             ps.setString(2, user.getPassword());
             ps.setString(3, user.getPhone());
             ps.setString(4, user.getEmail());
             ps.setString(5, user.getRole());
             ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt( 1 );
-            user.setId( id );
         } catch ( SQLException | ClassNotFoundException ex ) {
             throw new CarportException( ex.getMessage() );
         }

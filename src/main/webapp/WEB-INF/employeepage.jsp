@@ -11,5 +11,10 @@
         
         <h1>Hello <%=request.getParameter( "username")%> </h1>
         You are now logged in as a EMPLOYEE of our wonderful site.
+        
+        <form action="" name="">
+            <input type="text" name="user_id">
+            <input type="submit" value="submit">    
+        </form>
     </body>
 </html>

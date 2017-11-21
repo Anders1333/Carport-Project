@@ -37,4 +37,13 @@ public class CarportCalculator {
           
     }
     
+    
+     public static double roofArea(int length, int width, double Degree) {
+        double radians = Math.toRadians(Degree);
+        double hypotenuse = (width/2)/Math.cos(radians);
+        double roofWidthRound = Math.floor(hypotenuse*100)/100;
+        return  Math.round(roofWidthRound);
+        
+    }
+    
 }
