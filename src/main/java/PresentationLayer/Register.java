@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.LogicFacade;
+import FunctionLayer.DomainFacade;
 import FunctionLayer.CarportException;
 import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ public class Register extends Command {
         
        
         if ( password1.equals( password2 ) ) {
-            User user = LogicFacade.createUser( username,email, password1,phone );
+            User user = DomainFacade.createUser( username,email, password1,phone );
             HttpSession session = request.getSession();
             session.setAttribute( "user", user );
             session.setAttribute( "role", user.getRole() );

@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.LogicFacade;
+import FunctionLayer.DomainFacade;
 import FunctionLayer.CarportException;
 import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +14,7 @@ public class Login extends Command {
     String execute( HttpServletRequest request, HttpServletResponse response ) throws CarportException {
         String username = request.getParameter( "username" );
         String password = request.getParameter( "password" );
-        User user = LogicFacade.login( username, password );
+        User user = DomainFacade.login( username, password );
         HttpSession session = request.getSession();
         session.setAttribute( "user", user );
         session.setAttribute( "role", user.getRole() );
