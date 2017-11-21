@@ -16,13 +16,13 @@
         
             <form name="buildCarport" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="buildCarport">
-                        Length:<br>
+                        Length in: cm<br>
                         <input type="number" name="length" placeholder ="cm">
                         <br>
-                        Width:<br>
+                        Width in: cm<br>
                         <input type="number" name="width" placeholder="cm">
                         <br>
-                        Height:<br>
+                        Height in: cm<br>
                         <input type="number" name="height" placeholder="cm">
                         <br>
                         <input type="submit" value="Submit">
