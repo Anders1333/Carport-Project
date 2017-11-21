@@ -1,12 +1,13 @@
 PresentationLayer\UnknownCommand.class
 DBAccess\MaterialMapper.class
 FunctionLayer\CarportException.class
+PresentationLayer\TestMain.class
+FunctionLayer\DomainFacade.class
 PresentationLayer\Register.class
 DBAccess\Connector.class
 FunctionLayer\CarportCalculator.class
 FunctionLayer\User.class
 PresentationLayer\FrontController.class
-FunctionLayer\LogicFacade.class
 PresentationLayer\Command.class
 DBAccess\UserMapper.class
 PresentationLayer\Login.class
