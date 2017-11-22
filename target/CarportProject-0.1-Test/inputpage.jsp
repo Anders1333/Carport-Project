@@ -25,7 +25,12 @@
                         Height in: cm<br>
                         <input type="number" name="height" placeholder="cm">
                         <br>
+                        Taghældning i: grader
+                        <input type="number" name="degree" placeholder="i grader">
+                        <br>
+                        
                         <input type="submit" value="Submit">
+                        
                     </form>
     </body>
 </html>

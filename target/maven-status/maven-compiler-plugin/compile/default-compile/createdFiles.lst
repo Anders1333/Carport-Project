@@ -10,5 +10,6 @@ FunctionLayer\User.class
 PresentationLayer\FrontController.class
 PresentationLayer\Command.class
 DBAccess\UserMapper.class
+FunctionLayer\Carport.class
 PresentationLayer\Login.class
 PresentationLayer\CarportBuilder.class
