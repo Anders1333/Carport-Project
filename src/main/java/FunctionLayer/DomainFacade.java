@@ -2,6 +2,7 @@ package FunctionLayer;
 
 import DBAccess.UserMapper;
 import FunctionLayer.CarportCalculator;
+import java.util.ArrayList;
 
 /**
  * The purpose of DomainFacade is to...
@@ -40,6 +41,21 @@ public class DomainFacade {
 
     public static int getHorizontalPoles(int length, int width) throws CarportException {
         return CarportCalculator.getHorizontalPoles(length, width);
+    }
+    
+    
+    public static ArrayList<User> getUsers() throws CarportException{
+        
+        ArrayList<User> userList = UserMapper.getUsers();
+        
+        
+        return userList;
+    }
+    
+    
+    public static ArrayList<Order> getOrdersForUser (String username) throws CarportException{
+        ArrayList<Order> Orders = UserMapper.getOrdersForUser(username);
+        return Orders;
     }
 
 }

@@ -2,8 +2,10 @@ PresentationLayer\UnknownCommand.class
 DBAccess\MaterialMapper.class
 FunctionLayer\CarportException.class
 PresentationLayer\TestMain.class
+PresentationLayer\UserGetter.class
 FunctionLayer\DomainFacade.class
 PresentationLayer\Register.class
+PresentationLayer\OrderGetter.class
 DBAccess\Connector.class
 FunctionLayer\CarportCalculator.class
 FunctionLayer\User.class
