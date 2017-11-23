@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <% Carport carport = (Carport) session.getAttribute("carport");%>
+        <% Carport carport = (Carport) request.getAttribute("carport");%>
     </head>
     <body>
         <h1>The total price is:</h1>

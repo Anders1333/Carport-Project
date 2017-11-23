@@ -21,39 +21,22 @@ public class DomainFacade {
         return user;
     }
 
-    public static double calculateBox(int length, int width, int height) throws CarportException {
-        return CarportCalculator.CalculatePrice(length, width, height);
-    }
 
-    public static double getRoofHypotenuse(int length, int width, double degree) throws CarportException {
-        return CarportCalculator.getRoofHypotenuse(length, width, degree);
-
-    }
-
-    public static double getRoofArea(double roofWidth, int length) throws CarportException {
-        return CarportCalculator.getRoofArea(roofWidth, length);
-    }
-
-    public static int getVerticalPoles(int length) throws CarportException {
-        return CarportCalculator.getVerticalPoles(length);
-
-    }
-
-    public static int getHorizontalPoles(int length, int width) throws CarportException {
-        return CarportCalculator.getHorizontalPoles(length, width);
-    }
+    
+    public static void getPackList(int length, int width, int height, double degree) throws CarportException{
+    CarportCalculator.getPacklist(length, width, height, degree);
     
     
-    public static ArrayList<User> getUsers() throws CarportException{
-        
+    }
+    
+    public static ArrayList<User> getUsers() throws CarportException {
+
         ArrayList<User> userList = UserMapper.getUsers();
-        
-        
+
         return userList;
     }
-    
-    
-    public static ArrayList<Order> getOrdersForUser (String username) throws CarportException{
+
+    public static ArrayList<Order> getOrdersForUser(String username) throws CarportException {
         ArrayList<Order> Orders = UserMapper.getOrdersForUser(username);
         return Orders;
     }

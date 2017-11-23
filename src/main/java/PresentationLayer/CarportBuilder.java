@@ -21,20 +21,15 @@ public class CarportBuilder extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws CarportException {
         Carport carport;
-        HttpSession session = request.getSession();
+        //HttpSession session = request.getSession();
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
         double degree = Integer.parseInt(request.getParameter("degree"));
 
-        double roofWidth = DomainFacade.getRoofHypotenuse(length, width, degree);
-        double roofArea = DomainFacade.getRoofArea(roofWidth, length);
-        int verticalPoles = DomainFacade.getVerticalPoles(length);
-        int horizontalPoles = DomainFacade.getHorizontalPoles(length, width);
-
-        carport = new Carport(roofArea, verticalPoles, horizontalPoles);
-        session.setAttribute("carport", carport);
-
+       DomainFacade.getPackList(length, width, height, degree);
+        
+      
 //        double totalPrice = DomainFacade.calculateBox(length, width, height);
 //        session.setAttribute("totalprice", totalPrice);
         return "offerpage";
