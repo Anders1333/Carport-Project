@@ -22,9 +22,7 @@ public class DomainFacade {
         return user;
     }
 
-    public static double calculateBox(int length, int width, int height) throws CarportException {
-        return CarportCalculator.CalculatePrice(length, width, height);
-    }
+    
     //------------------------------------------
      public static Carport calculateMaterials(int length, int width,  int height,double degree) throws CarportException {
         Carport carport = CarportCalculator.CalculateMaterials(length, width, height,degree);

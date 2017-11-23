@@ -24,10 +24,10 @@
         <%=carport.getRoofArea()%> m2
         <Br>
         verticalPoles:<br>
-        <%=carport.getVerticalPoles()%> stk
+        <%=carport.getVerticalPoles()%> stk af <%=request.getAttribute("height")%> cm
         <br>
-        horizontalPoles
-        <%=carport.getHorizontalPoles()%> stk
+        horizontalPoles:<br>
+        <%=carport.getHorizontalPoles()%> stk af <%=request.getAttribute("width")%> cm
         </p>
         
    <svg width="1000" height="1000" viewBox="0 0 10000 10000"> 

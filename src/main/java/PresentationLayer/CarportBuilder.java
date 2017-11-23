@@ -30,6 +30,8 @@ public class CarportBuilder extends Command {
         
          Carport carport = DomainFacade.calculateMaterials(length,width,height,degree);
           
+         request.setAttribute("width",width);
+         request.setAttribute("height",height);
          request.setAttribute("carport", carport);
          HttpSession session = request.getSession();
          session.setAttribute("totalprice",carport.getPrice());

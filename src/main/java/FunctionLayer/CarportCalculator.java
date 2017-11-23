@@ -23,7 +23,7 @@ public class CarportCalculator {
         int verticalPoles = getVerticalPoles(length);
         int horizontalPoles = getHorizontalPoles(length,width);
         
-        double price = CalculatePrice(roofArea,verticalPoles,horizontalPoles);
+        double price = CalculatePrice(roofArea,verticalPoles,horizontalPoles,length,width,height,degree);
         
         Carport carport = new Carport(roofArea,verticalPoles,horizontalPoles,price);
         
@@ -32,9 +32,20 @@ public class CarportCalculator {
         
         
         
-    public static double CalculatePrice(double roofArea,int verticalPoles,int HorizontalPoles){
+    public static double CalculatePrice(double roofArea,int verticalPoles,int HorizontalPoles,int length,int width,int height,double degree) throws CarportException{
         
-        return 100;
+        double verticalPolePrice = MaterialMapper.getMeterPrice(3)*(height/100);
+        double horizontalPolePrice = MaterialMapper.getMeterPrice(3)*(width/100);
+        double roofprice = roofArea * 50;
+        
+        double totalForVerticalPoles = verticalPolePrice * verticalPoles;
+        double totalForHorizontalPoles = horizontalPolePrice * HorizontalPoles;
+        
+        
+        double totalPrice = totalForVerticalPoles+totalForHorizontalPoles+roofprice;
+        
+        
+        return totalPrice;
     }
         
     
