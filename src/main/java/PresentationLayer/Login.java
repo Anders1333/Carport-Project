@@ -23,7 +23,7 @@ public class Login extends Command {
         //Generate List of users if employee is logging in//
         if("employee".equalsIgnoreCase(user.getRole())){
             ArrayList<User> userList = DomainFacade.getUsers();
-            session.setAttribute("userList", userList);
+            request.setAttribute("userList", userList);
         }
         return user.getRole() + "page";
     }

@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <% Carport carport = (Carport) session.getAttribute("carport");%>
+        <% Carport carport = (Carport) request.getAttribute("carport");%>
     </head>
     <body>
         <h1>The total price is:</h1>
@@ -21,13 +21,13 @@
         <p>
             
         RoofArea: <br>
-        <%=carport.getRoofArea()%>
+        <%=carport.getRoofArea()%> m2
         <Br>
         verticalPoles:<br>
-        <%=carport.getVerticalPoles()%>
+        <%=carport.getVerticalPoles()%> stk
         <br>
         horizontalPoles
-        <%=carport.getHorizontalPoles()%>
+        <%=carport.getHorizontalPoles()%> stk
         </p>
         
    <svg width="1000" height="1000" viewBox="0 0 10000 10000"> 

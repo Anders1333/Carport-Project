@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import DBAccess.MaterialMapper;
 import DBAccess.UserMapper;
 import FunctionLayer.CarportCalculator;
 import java.util.ArrayList;
@@ -24,26 +25,14 @@ public class DomainFacade {
     public static double calculateBox(int length, int width, int height) throws CarportException {
         return CarportCalculator.CalculatePrice(length, width, height);
     }
-
-    public static double getRoofHypotenuse(int length, int width, double degree) throws CarportException {
-        return CarportCalculator.getRoofHypotenuse(length, width, degree);
-
+    //------------------------------------------
+     public static Carport calculateMaterials(int length, int width,  int height,double degree) throws CarportException {
+        Carport carport = CarportCalculator.CalculateMaterials(length, width, height,degree);
+        
+        return carport;
     }
 
-    public static double getRoofArea(double roofWidth, int length) throws CarportException {
-        return CarportCalculator.getRoofArea(roofWidth, length);
-    }
-
-    public static int getVerticalPoles(int length) throws CarportException {
-        return CarportCalculator.getVerticalPoles(length);
-
-    }
-
-    public static int getHorizontalPoles(int length, int width) throws CarportException {
-        return CarportCalculator.getHorizontalPoles(length, width);
-    }
-    
-    
+     
     public static ArrayList<User> getUsers() throws CarportException{
         
         ArrayList<User> userList = UserMapper.getUsers();
@@ -57,5 +46,14 @@ public class DomainFacade {
         ArrayList<Order> Orders = UserMapper.getOrdersForUser(username);
         return Orders;
     }
+
+    public static Order getSingleOrder(int orderId) throws CarportException {
+        
+        Order order = MaterialMapper.getSingleOrder(orderId);
+        
+        return order;
+    }
+
+   
 
 }

@@ -15,6 +15,12 @@ public class Order {
     double price;
     String date;
     String status;
+    //------ Stykliste variabler----//
+    int length;
+    int width;
+    int height;
+    double roofIncline;
+    
 
     public Order(int id, String username, double price, String date, String status) {
         this.id = id;
@@ -23,6 +29,30 @@ public class Order {
         this.date = date;
         this.status = status;
     }
+
+    public Order(int length, int width, int height, double roofIncline) {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.roofIncline = roofIncline;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public double getRoofIncline() {
+        return roofIncline;
+    }
+    
 
     @Override
     public String toString() {

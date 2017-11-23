@@ -14,24 +14,26 @@
         <title>JSP Page</title>
 
         <%
-            ArrayList<Order> orderList = (ArrayList<Order>)session.getAttribute("orderList");
+            ArrayList<Order> orderList = (ArrayList<Order>)request.getAttribute("orderList");
         %>
 
     </head>
     <body>
         <h1>Hello World!</h1>
 
-        <ul>
+           <ul>
             <% for (int i = 0; i < orderList.size(); i++) {%>
             <li>
-
-
-                <%=orderList.get(i)%>
-
-
+                <form name = "getOrders" action="FrontController" method="POST">
+                
+                    <%=orderList.get(i)%>   <input type = "submit" value ="Show Packlist">
+                    <input type="hidden" name="command" value="packList">
+                    <input type ="hidden" name="orderId" value=<%=orderList.get(i).getId()%>>
+                </form>
             </li>
             <br>
             <%}%>   
         </ul>
+        <br>
     </body>
 </html>
