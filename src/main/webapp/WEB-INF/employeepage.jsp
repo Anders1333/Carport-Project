@@ -10,7 +10,7 @@
         <title>Employee home page</title>
         
         <%
-            ArrayList<User> userList = (ArrayList<User>) session.getAttribute("userList");
+            ArrayList<User> userList = (ArrayList<User>) request.getAttribute("userList");
          %>
     </head>
     <body>
@@ -27,7 +27,7 @@
             <li>
                 <form name = "getOrders" action="FrontController" method="POST">
                 
-                    <%=userList.get(i)%><input type = "submit" value ="Show offers">
+                    <%=userList.get(i)%>   <input type = "submit" value ="Show offers">
                     <input type="hidden" name="command" value="getOrders">
                     <input type ="hidden" name="Username" value=<%=userList.get(i).getUsername()%>>
                 </form>

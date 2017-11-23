@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 /**
  The purpose of UserMapper is to...
 
- @author kasper
+ @author AndersHC
  */
 public class UserMapper {
 

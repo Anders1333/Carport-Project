@@ -6,6 +6,7 @@
 package DBAccess;
 
 import FunctionLayer.CarportException;
+import FunctionLayer.Order;
 import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,5 +36,33 @@ public class MaterialMapper {
         } catch ( ClassNotFoundException | SQLException ex ) {
             throw new CarportException(ex.getMessage());
         }
+    }
+
+    public static Order getSingleOrder(int orderId) throws CarportException {
+        
+            try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM Orders WHERE Order_id = ?;";
+            PreparedStatement ps = con.prepareStatement( SQL );
+            ps.setInt( 1, orderId );
+            
+            ResultSet rs = ps.executeQuery();
+            if ( rs.next() ) {
+             Order order = new Order( 
+                     rs.getInt("Length"),
+                     rs.getInt("Width"),
+                     rs.getInt("Height"),
+                     rs.getDouble("Roof_Incline"));
+                    
+                     
+               return order;
+            } else {
+                throw new CarportException( "No order with that ID" );
+            }
+        } catch ( ClassNotFoundException | SQLException ex ) {
+            throw new CarportException(ex.getMessage());
+        }
+        
+       
     }
 }

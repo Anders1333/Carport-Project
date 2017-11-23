@@ -5,34 +5,68 @@
  */
 package FunctionLayer;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author DD
  */
 public class Carport {
-    
-    double roofArea;
-    int verticalPoles;
-    int horizontalPoles;
 
-    public Carport(double roofArea, int verticalPoles, int horizontalPoles) {
-        this.roofArea = roofArea;
-        this.verticalPoles = verticalPoles;
-        this.horizontalPoles = horizontalPoles;
+    private static int length;
+    private static int width;
+    private static int height;
+    private static double degree;
+
+    public Carport(int Length, int width, int height, double degree) {
+        Carport.length = Length;
+        Carport.width = width;
+        Carport.height = height;
+        Carport.degree = degree;
     }
 
-    public double getRoofArea() {
-        return roofArea;
-    }
-
-    public int getVerticalPoles() {
-        return verticalPoles;
-    }
-
-    public int getHorizontalPoles() {
-        return horizontalPoles;
-    }
     
     
     
+    
+    
+    //------------------------ Roof ---------------------------------//
+    public static int getInclineSheets() throws CarportException {
+
+        return CarportCalculator.getInclineSheet(width, length, degree);
+
+    }
+
+    public static double getRoofMeterial() throws CarportException {
+        return CarportCalculator.getRoofMeterial(width, length, degree);
+
+    }
+
+    public static int getTopBattens() throws CarportException {
+        return CarportCalculator.getTopBattens(length);
+
+    }
+
+    //-------------------------- Carport --------------------------//
+    public static int getSternPalnksCarport() throws CarportException {
+        return CarportCalculator.getSternPlanksCarport(length);
+
+    }
+
+    public static int getVerticalPoles() throws CarportException {
+        return CarportCalculator.getVerticalPoles(length);
+
+    }
+
+    public static int getHorizontalPolesLength() throws CarportException {
+        return CarportCalculator.getHorizontalPolesLength(length);
+
+    }
+
+    public static int getHorizintalPolesWidth() throws CarportException {
+        return CarportCalculator.getHorisontalPolesWidth(length);
+
+    }
+
 }

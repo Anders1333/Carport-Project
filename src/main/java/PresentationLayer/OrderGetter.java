@@ -26,8 +26,8 @@ public class OrderGetter extends Command {
          
          ArrayList<Order> Orders = DomainFacade.getOrdersForUser(username);
          
-            HttpSession session = request.getSession();
-            session.setAttribute( "orderList", Orders );
+           
+            request.setAttribute( "orderList", Orders );
             
         return "customerorderspage";
     }

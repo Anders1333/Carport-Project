@@ -13,24 +13,52 @@ public class CarportCalculator {
 
     public static PackingList getPacklist(int length, int width, int height, double degree) throws CarportException {
 
-        //--- CARPORT ---//
-        int inclineSheets = getInclineSheet(getInclineLength(length, width, degree));
-        int sternPlanksCarport = getSternPlanksCarport(length);
-        int verticalPoles = getVerticalPoles(length);
-        int horizontalPolesLength = getHorizontalPolesLength(length);
-        int horizontalPolesWidth = getHorisontalPolesWidth(width);
-        int topBattens = getTopBattens(length);
-
-        //--- Roof ---//
-        int roofMeterial = (int) getRoofMeterial(width, (int) getInclineLength(length, width, degree), length, degree);
-
-        return new PackingList(inclineSheets, sternPlanksCarport,
-                verticalPoles, horizontalPolesLength, horizontalPolesWidth,
-                topBattens, roofMeterial);
+//        //--- CARPORT ---//
+//        int inclineSheets = getInclineSheet(getInclineLength(length, width, degree));
+//        int sternPlanksCarport = getSternPlanksCarport(length);
+//        int verticalPoles = getVerticalPoles(length);
+//        int horizontalPolesLength = getHorizontalPolesLength(length);
+//        int horizontalPolesWidth = getHorisontalPolesWidth(width);
+//        int topBattens = getTopBattens(length);
+//  
+//        //--- Roof ---//
+//        int roofMeterial = (int) getRoofMeterial(width, (int) getInclineLength(length, width, degree), length, degree);
+//
+//        return new PackingList(inclineSheets, sternPlanksCarport,
+//                verticalPoles, horizontalPolesLength, horizontalPolesWidth,
+//                topBattens, roofMeterial);
+        return null;
 
     }
 
-    //----------------- ROOF CALCULATIONS ------------------------------//
+  public static Carport CalculateMaterials(int length, int width, int height, double degree) throws CarportException {
+//        double roofHypotenuse = getRoofHypotenuse(length,width,degree);
+//        double roofArea = getRoofArea(roofHypotenuse,length);
+//        int verticalPoles = getVerticalPoles(length);
+//        int horizontalPoles = getHorizontalPoles(length,width);
+//        
+//        double price = CalculatePrice(roofArea,verticalPoles,horizontalPoles,length,width,height,degree);
+//        
+//        Carport carport = new Carport(roofArea,verticalPoles,horizontalPoles,price);
+//        
+//        return carport;
+//         }
+//    public static double CalculatePrice(double roofArea,int verticalPoles,int HorizontalPoles,int length,int width,int height,double degree) throws CarportException{
+//        
+//        double verticalPolePrice = MaterialMapper.getMeterPrice(3)*(height/100);
+//        double horizontalPolePrice = MaterialMapper.getMeterPrice(3)*(width/100);
+//        double roofprice = roofArea * 50;
+//        
+//        double totalForVerticalPoles = verticalPolePrice * verticalPoles;
+//        double totalForHorizontalPoles = horizontalPolePrice * HorizontalPoles;
+//        
+//        
+//        double totalPrice = totalForVerticalPoles+totalForHorizontalPoles+roofprice;
+//        
+//        
+        return null;
+    }
+//----------------- ROOF CALCULATIONS ------------------------------//
     public static double getInclineLength(int length, int width, double degree) throws CarportException {
 
         if (degree <= 0) {
@@ -45,7 +73,17 @@ public class CarportCalculator {
         }
     }
 
-    public static int getInclineSheet(double inclineSheetLength) throws CarportException {
+    public static int getTopBattens(int length) throws CarportException {
+        int topBattens = length / 420;
+        if (length % 420 > 0) {
+            topBattens += 1;
+        }
+        return topBattens;
+    }
+
+    public static int getInclineSheet(int width, int length, double degree) throws CarportException {
+        double inclineSheetLength = getInclineLength(length, width, degree);
+
         int numberOfInclineSheet = (int) ((inclineSheetLength * 4) / 480);
         if ((inclineSheetLength * 4) % 480 > 0) {
             numberOfInclineSheet += 1;
@@ -53,14 +91,15 @@ public class CarportCalculator {
         return numberOfInclineSheet;
     }
 
-    public static double getRoofMeterial(int width, int inclineSheetLength, int length, double degree) throws CarportException {
+    public static double getRoofMeterial(int width, int length, double degree) throws CarportException {
+        double inclineSheetLength = getInclineLength(length, width, degree);
         int area;
         if (degree <= 0) {
             area = (width * length);
         } else if (degree >= 90) {
             throw new CarportException("This roof is not buildable");
         } else {
-            area = ((inclineSheetLength * length) * 2);
+            area = (int) ((inclineSheetLength * length) * 2);
         }
         int meterial = (area / 100);
         if (area % 100 > 0) {
@@ -70,6 +109,13 @@ public class CarportCalculator {
 
     }
 
+    
+    
+    
+    
+    
+    
+    
     //------------------- BUILDING CALCULATIONS --------------------//
     public static int getSternPlanksCarport(int length) throws CarportException {
         int numberOfSternPlanksCarport = length / 600;
@@ -99,14 +145,6 @@ public class CarportCalculator {
             poleWidth += 1;
         }
         return poleWidth;
-    }
-
-    public static int getTopBattens(int length) throws CarportException {
-        int topBattens = length / 420;
-        if (length % 420 > 0) {
-            topBattens += 1;
-        }
-        return topBattens;
     }
 
 }

@@ -2,7 +2,7 @@ package FunctionLayer;
 
 /**
  * The purpose of User is to...
- * @author kasper
+ * @author AndersHC
  */
 public class User {
 
