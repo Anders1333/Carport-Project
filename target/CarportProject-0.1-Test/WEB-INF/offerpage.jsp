@@ -11,14 +11,17 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <% Carport carport = (Carport) request.getAttribute("carport");%>
+        
+        <% double totalPrice = (double) request.getAttribute("totalPrice"); %>
+        
+        
     </head>
     <body>
         <h1>The total price is:</h1>
-        <!-- <%= session.getAttribute("totalprice")%> -->
 
         HERE GOES YOUR PRICE
-        $$$$$$$$
+        <%= totalPrice%> DKK
+        
         
         <br>
         HERE GOES YOUR DRAWING

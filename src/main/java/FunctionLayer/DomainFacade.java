@@ -39,4 +39,9 @@ public class DomainFacade {
         return order;
     }
 
+    public static double getTotalPrice(Carport carport) throws CarportException {
+        return PriceCalculation.getTotalPrice(carport);
+    
+    }
+
 }
