@@ -74,8 +74,19 @@
                     <td>stk.</td>
                     <td>Remme i sider, sadles ned i stolper Carport Del</td>
                 </tr>    
+                <tr>
+                    <td>10x10 cm tagsten</td>
+                    <td></td>
+                    <td> <%=carport.getRoofMeterial() %></td>
+                    <td>stk.</td>
+                    <td>Tagsten til tag</td>
+                </tr>
+                
+                
             </tbody>
-
+            
+            
+            
         </table>
 
 

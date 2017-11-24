@@ -82,9 +82,10 @@ public class UserMapper {
     public static ArrayList<Order> getOrdersForUser(String username) throws CarportException{
   try {
            Connection con = Connector.connection();
-           String SQL = "SELECT * FROM Orders WHERE User_name = ?";
+           String SQL = "SELECT * FROM Orders WHERE User_name = ? AND Status = ?";
            PreparedStatement ps = con.prepareStatement(SQL);
            ps.setString(1, username);
+           ps.setString(2, "generated");
            ResultSet rs = ps.executeQuery();
            ArrayList<Order> orderList = new ArrayList<>();
            

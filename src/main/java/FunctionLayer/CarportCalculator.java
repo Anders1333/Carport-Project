@@ -104,7 +104,7 @@ public class CarportCalculator {
         } else {
             area = (int) ((inclineSheetLength * length) * 2);
         }
-        int meterial = (area / 10000);
+        int meterial = (area / 1000);
         if (area % 100 > 0) {
             meterial += 2;
         }
