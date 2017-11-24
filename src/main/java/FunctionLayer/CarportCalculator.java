@@ -31,7 +31,7 @@ public class CarportCalculator {
 
     }
 
-  public static Carport CalculateMaterials(int length, int width, int height, double degree) throws CarportException {
+    public static Carport CalculateMaterials(int length, int width, int height, double degree) throws CarportException {
 //        double roofHypotenuse = getRoofHypotenuse(length,width,degree);
 //        double roofArea = getRoofArea(roofHypotenuse,length);
 //        int verticalPoles = getVerticalPoles(length);
@@ -59,6 +59,7 @@ public class CarportCalculator {
         return null;
     }
 //----------------- ROOF CALCULATIONS ------------------------------//
+
     public static double getInclineLength(int length, int width, double degree) throws CarportException {
 
         if (degree <= 0) {
@@ -68,8 +69,9 @@ public class CarportCalculator {
         } else {
             double radians = Math.toRadians(degree);
             double hypotenuse = (width / 2) / Math.cos(radians);
-            double roofWidthRound = Math.floor(hypotenuse);
-            return Math.ceil(roofWidthRound/100.0);
+            //   double roofWidthRound = Math.floor(hypotenuse);
+           double hypotenuseRound = Math.ceil((hypotenuse / 10) * 10);
+            return hypotenuseRound;
         }
     }
 
@@ -84,11 +86,12 @@ public class CarportCalculator {
     public static double getInclineSheet(int width, int length, double degree) throws CarportException {
         double inclineSheetLength = getInclineLength(length, width, degree);
 
-        double numberOfInclineSheet =  ((inclineSheetLength * 4) / 480);
+        double numberOfInclineSheet = ((inclineSheetLength * 4) / 480);
         if ((inclineSheetLength * 4) % 480 > 0) {
             numberOfInclineSheet += 1;
         }
-        return numberOfInclineSheet;
+        double numberOfInclineSheetRound =  Math.ceil((numberOfInclineSheet /10)*10);
+        return  numberOfInclineSheetRound;
     }
 
     public static double getRoofMeterial(int width, int length, double degree) throws CarportException {
@@ -109,20 +112,13 @@ public class CarportCalculator {
 
     }
 
-    
-    
-    
-    
-    
-    
-    
     //------------------- BUILDING CALCULATIONS --------------------//
     public static int getSternPlanksCarport(int length) throws CarportException {
         int numberOfSternPlanksCarport = length / 600;
         if (length % 600 > 0) {
             numberOfSternPlanksCarport += 1;
         }
-        return numberOfSternPlanksCarport;
+        return numberOfSternPlanksCarport*2;
     }
 
     public static int getVerticalPoles(int length) throws CarportException {

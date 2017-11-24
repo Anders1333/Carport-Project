@@ -12,14 +12,26 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
 
+
+
         <% Carport carport = (Carport) request.getAttribute("carport");%>
 
+
+
+
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+        </style>
     </head>
     <body>
         <h1>The total price is:</h1>
         <h3>This will be a packList (stykliste)</h3>
 
-        <table width="500" style="text-align: left">
+        <table width="1000">
             <tbody><tr>
                     <th>Træ</th>
                     <th>Længde</th>
@@ -28,13 +40,42 @@
                     <th>Info</th>
                 </tr>
                 <tr>
-                    <td>Eg</td>
+                    <td>25x150 mm. trykimp Bræt</td>
                     <td>480cm</td>
-                    <td> <%=carport.getInclineSheets() %></td>
+                    <td> <%=carport.getInclineSheets()%></td>
                     <td>stk.</td>
-                    <td>Vindskede til rejsning</td>
+                    <td>Vindskede på rejsning</td>
                 </tr>
+                <tr>
+                    <td>25x150 mm. trykimp. Bræt</td>
+                    <td>600</td>
+                    <td> <%=carport.getSternPalnksCarport()%></td>
+                    <td>stk.</td>
+                    <td>Sternbrædder til siderne Carport del</td>
+                </tr>
+                <tr>
+                    <td>Byg selv spær</td>
+                    <td></td>
+                    <td> 1</td>
+                    <td>sæt</td>
+                    <td>Byg selv spær (skal samles) 8 stk</td>
+                </tr>    
+                <tr>
+                    <td>97x97 mm. trykimp. Stolpe</td>
+                    <td>300cm</td>
+                    <td> <%=carport.getVerticalPoles()%></td>
+                    <td>stk.</td>
+                    <td>Stolper nedgraves 90 cm. i jord + skråstiver</td>
+                </tr>    
+                <tr>
+                    <td>45x195 mm. spærtræ ubh</td>
+                    <td>480cm</td>
+                    <td> <%=carport.getHorizontalPolesLength() + carport.getHorizontalPolesWidth()%></td>
+                    <td>stk.</td>
+                    <td>Remme i sider, sadles ned i stolper Carport Del</td>
+                </tr>    
             </tbody>
+
         </table>
 
 

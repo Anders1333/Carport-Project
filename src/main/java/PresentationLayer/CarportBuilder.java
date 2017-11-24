@@ -30,7 +30,7 @@ public class CarportBuilder extends Command {
        
         Carport carport = new Carport(length, width, height, degree);
         
-       
+       request.setAttribute("carport", carport);
        
 //         Carport carport = DomainFacade.calculateMaterials(length,width,height,degree);
 //          
