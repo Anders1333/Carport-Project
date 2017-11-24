@@ -68,8 +68,8 @@ public class CarportCalculator {
         } else {
             double radians = Math.toRadians(degree);
             double hypotenuse = (width / 2) / Math.cos(radians);
-            double roofWidthRound = Math.floor(hypotenuse * 100);
-            return Math.round(roofWidthRound);
+            double roofWidthRound = Math.floor(hypotenuse);
+            return Math.ceil(roofWidthRound/100.0);
         }
     }
 
@@ -81,10 +81,10 @@ public class CarportCalculator {
         return topBattens;
     }
 
-    public static int getInclineSheet(int width, int length, double degree) throws CarportException {
+    public static double getInclineSheet(int width, int length, double degree) throws CarportException {
         double inclineSheetLength = getInclineLength(length, width, degree);
 
-        int numberOfInclineSheet = (int) ((inclineSheetLength * 4) / 480);
+        double numberOfInclineSheet =  ((inclineSheetLength * 4) / 480);
         if ((inclineSheetLength * 4) % 480 > 0) {
             numberOfInclineSheet += 1;
         }
@@ -101,7 +101,7 @@ public class CarportCalculator {
         } else {
             area = (int) ((inclineSheetLength * length) * 2);
         }
-        int meterial = (area / 100);
+        int meterial = (area / 10000);
         if (area % 100 > 0) {
             meterial += 2;
         }

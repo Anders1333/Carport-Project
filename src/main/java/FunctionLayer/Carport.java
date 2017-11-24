@@ -26,13 +26,8 @@ public class Carport {
         Carport.degree = degree;
     }
 
-    
-    
-    
-    
-    
     //------------------------ Roof ---------------------------------//
-    public static int getInclineSheets() throws CarportException {
+    public static double getInclineSheets() throws CarportException {
 
         return CarportCalculator.getInclineSheet(width, length, degree);
 
@@ -64,8 +59,8 @@ public class Carport {
 
     }
 
-    public static int getHorizintalPolesWidth() throws CarportException {
-        return CarportCalculator.getHorisontalPolesWidth(length);
+    public static int getHorizontalPolesWidth() throws CarportException {
+        return CarportCalculator.getHorisontalPolesWidth(width);
 
     }
 

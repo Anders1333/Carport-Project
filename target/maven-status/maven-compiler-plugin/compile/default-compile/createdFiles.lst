@@ -1,3 +1,4 @@
+FunctionLayer\PackingList.class
 PresentationLayer\UnknownCommand.class
 DBAccess\MaterialMapper.class
 FunctionLayer\CarportException.class
@@ -10,6 +11,8 @@ DBAccess\Connector.class
 FunctionLayer\CarportCalculator.class
 FunctionLayer\User.class
 PresentationLayer\FrontController.class
+FunctionLayer\Order.class
+PresentationLayer\PackListGetter.class
 PresentationLayer\Command.class
 DBAccess\UserMapper.class
 FunctionLayer\Carport.class
