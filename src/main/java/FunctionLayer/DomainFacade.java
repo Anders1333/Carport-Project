@@ -18,17 +18,8 @@ public class DomainFacade {
         return user;
     }
 
-    public static void getPackList(int length, int width, int height, double degree) throws CarportException {
-        CarportCalculator.getPacklist(length, width, height, degree);
+    
 
-    }
-
-//    ------------------------------------------
-//     public static Carport calculateMaterials(int length, int width,  int height,double degree) throws CarportException {
-//        Carport carport = CarportCalculator.CalculateMaterials(length, width, height,degree);
-//        
-//        return carport;
-//    }
     public static ArrayList<User> getUsers() throws CarportException {
 
         ArrayList<User> userList = UserMapper.getUsers();

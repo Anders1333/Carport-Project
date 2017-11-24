@@ -19,7 +19,7 @@ import java.sql.SQLException;
  */
 public class MaterialMapper {
     
-    public static double getMeterPrice(int id) throws CarportException{
+    public static double getPrice(int id) throws CarportException{
          try {
             Connection con = Connector.connection();
             String SQL = "SELECT Material_price from Materials WHERE Material_id = ?;";

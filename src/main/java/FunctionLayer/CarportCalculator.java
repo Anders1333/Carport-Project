@@ -7,53 +7,8 @@ package FunctionLayer;
  */
 public class CarportCalculator {
 
-    public static PackingList getPacklist(int length, int width, int height, double degree) throws CarportException {
-
-//        //--- CARPORT ---//
-//        int inclineSheets = getInclineSheet(getInclineLength(length, width, degree));
-//        int sternPlanksCarport = getSternPlanksCarport(length);
-//        int verticalPoles = getVerticalPoles(length);
-//        int horizontalPolesLength = getHorizontalPolesLength(length);
-//        int horizontalPolesWidth = getHorisontalPolesWidth(width);
-//        int topBattens = getTopBattens(length);
-//  
-//        //--- Roof ---//
-//        int roofMeterial = (int) getRoofMeterial(width, (int) getInclineLength(length, width, degree), length, degree);
-//
-//        return new PackingList(inclineSheets, sternPlanksCarport,
-//                verticalPoles, horizontalPolesLength, horizontalPolesWidth,
-//                topBattens, roofMeterial);
-        return null;
-
-    }
-
-    public static Carport CalculateMaterials(int length, int width, int height, double degree) throws CarportException {
-//        double roofHypotenuse = getRoofHypotenuse(length,width,degree);
-//        double roofArea = getRoofArea(roofHypotenuse,length);
-//        int verticalPoles = getVerticalPoles(length);
-//        int horizontalPoles = getHorizontalPoles(length,width);
-//        
-//        double price = CalculatePrice(roofArea,verticalPoles,horizontalPoles,length,width,height,degree);
-//        
-//        Carport carport = new Carport(roofArea,verticalPoles,horizontalPoles,price);
-//        
-//        return carport;
-//         }
-//    public static double CalculatePrice(double roofArea,int verticalPoles,int HorizontalPoles,int length,int width,int height,double degree) throws CarportException{
-//        
-//        double verticalPolePrice = MaterialMapper.getMeterPrice(3)*(height/100);
-//        double horizontalPolePrice = MaterialMapper.getMeterPrice(3)*(width/100);
-//        double roofprice = roofArea * 50;
-//        
-//        double totalForVerticalPoles = verticalPolePrice * verticalPoles;
-//        double totalForHorizontalPoles = horizontalPolePrice * HorizontalPoles;
-//        
-//        
-//        double totalPrice = totalForVerticalPoles+totalForHorizontalPoles+roofprice;
-//        
-//        
-        return null;
-    }
+   
+   
 //----------------- ROOF CALCULATIONS ------------------------------//
 
     public static double getInclineLength(int length, int width, double degree) throws CarportException {
