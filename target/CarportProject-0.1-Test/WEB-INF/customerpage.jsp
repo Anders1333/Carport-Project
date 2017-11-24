@@ -1,7 +1,7 @@
 <%-- 
     Document   : customerpage
-    Created on : Aug 22, 2017, 2:33:37 PM
-    Author     : kasper
+    Created on : 24, 2017, 11:05:12 am
+    Author     : AndersHC
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,8 +13,8 @@
     </head>
     <body>
       
-        <h1>Hello <%=request.getParameter( "username" )%> </h1>
-        You are now logged in as a customer of our wonderful site.
+        <h1>Welcome <%=request.getParameter( "username" )%> </h1>
+        
         
         <a href="./inputpage.jsp">Input page</a>
         
