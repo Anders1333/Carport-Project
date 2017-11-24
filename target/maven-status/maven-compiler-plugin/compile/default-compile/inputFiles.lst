@@ -1,13 +1,34 @@
+<<<<<<< HEAD
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\PresentationLayer\UnknownCommand.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\DBAccess\Connector.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\PresentationLayer\FrontController.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\FunctionLayer\CarportCalculator.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\FunctionLayer\User.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\DBAccess\UserMapper.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\PresentationLayer\Command.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\PresentationLayer\Login.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\DBAccess\MaterialMapper.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\PresentationLayer\TestMain.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\FunctionLayer\DomainFacade.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\FunctionLayer\CarportException.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\FunctionLayer\Carport.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\PresentationLayer\CarportBuilder.java
+C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\PresentationLayer\Register.java
+=======
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\PresentationLayer\FrontController.java
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\FunctionLayer\CarportCalculator.java
+C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\PresentationLayer\TestMain.java
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\PresentationLayer\CarportBuilder.java
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\PresentationLayer\Command.java
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\PresentationLayer\UnknownCommand.java
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\PresentationLayer\Login.java
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\DBAccess\Connector.java
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\FunctionLayer\User.java
-C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\FunctionLayer\LogicFacade.java
+C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\PresentationLayer\OrderGetter.java
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\DBAccess\UserMapper.java
+C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\PresentationLayer\UserGetter.java
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\FunctionLayer\CarportException.java
+C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\FunctionLayer\DomainFacade.java
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\DBAccess\MaterialMapper.java
 C:\Users\AndersHC\Documents\NetBeansProjects\CarportProject\src\main\java\PresentationLayer\Register.java
+>>>>>>> bfff8760f3b3a8745ef5cf4603589ebe3d37b2cc

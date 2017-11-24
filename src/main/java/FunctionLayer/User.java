@@ -1,9 +1,6 @@
 package FunctionLayer;
 
-/**
- * The purpose of User is to...
- * @author kasper
- */
+
 public class User {
 
     public User(String username, String password, String role) {
@@ -77,5 +74,11 @@ public class User {
     public void setId( int id ) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return  "Username: " + username + "    Phone: " + phone + "    Email: " + email;
+    }
+    
 
 }

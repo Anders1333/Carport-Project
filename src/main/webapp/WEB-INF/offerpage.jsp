@@ -4,17 +4,31 @@
     Author     : AndersHC
 --%>
 
+<%@page import="FunctionLayer.Carport"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <% Carport carport = (Carport) request.getAttribute("carport");%>
     </head>
     <body>
         <h1>The total price is:</h1>
         <%= session.getAttribute("totalprice")%>
-  
+        
+        
+        <p>
+            
+        RoofArea: <br>
+        <%=carport.getRoofArea()%> m2
+        <Br>
+        verticalPoles:<br>
+        <%=carport.getVerticalPoles()%> stk af <%=request.getAttribute("height")%> cm
+        <br>
+        horizontalPoles:<br>
+        <%=carport.getHorizontalPoles()%> stk af <%=request.getAttribute("width")%> cm
+        </p>
         
    <svg width="1000" height="1000" viewBox="0 0 10000 10000"> 
                   <rect x="1000" y="1000" stroke-width="20px" width="2000" height="1000" style="stroke:#000000; fill:#ffffff"></rect>
