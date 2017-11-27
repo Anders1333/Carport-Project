@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 300 100% 'Helvetica Neue', Helvetica, Arial;
+}
+
+.tab-nav-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+}
+.tab1-c , .tab2-c, .tab3-c, .tab4-c{display:none;}
+
+ul li {
+  display: inline;
+  text-align: center;
+}
+
+a {
+  display: inline-block;
+  width: 25%;
+  padding: .75rem 0;
+  margin: 0;
+  text-decoration: none;
+  color: #333;
+}
+
+.two:hover ~ hr {
+  margin-left: 25%;
+  background: orange;
+}
+
+.three:hover ~ hr {
+  margin-left: 50%;
+  background: yellow;
+}
+
+.four:hover ~ hr {
+  margin-left: 75%;
+  background: red;
+}
+
+hr {
+  height: .25rem;
+  width: 25%;
+  margin: 0;
+  background: tomato;
+  border: none;
+  transition: .3s ease-in-out;
+}

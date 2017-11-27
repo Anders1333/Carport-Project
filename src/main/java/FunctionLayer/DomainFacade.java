@@ -28,7 +28,7 @@ public class DomainFacade {
     }
 
     public static ArrayList<Order> getOrdersForUser(String username) throws CarportException {
-        ArrayList<Order> Orders = UserMapper.getOrdersForUser(username);
+        ArrayList<Order> Orders = UserMapper.getGeneratedOrders(username);
         
         return Orders;
     }
