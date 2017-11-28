@@ -18,12 +18,29 @@ public class Carport {
     private static int width;
     private static int height;
     private static double degree;
+    private static int shedDepth;
 
+    // construter for a Carport without a shed
     public Carport(int Length, int width, int height, double degree) {
         Carport.length = Length;
         Carport.width = width;
         Carport.height = height;
         Carport.degree = degree;
+
+    }
+
+    //  construter for a Carport with a shed
+    public Carport(int Length, int width, int height, double degree, int shedDepth) {
+        Carport.length = Length;
+        Carport.width = width;
+        Carport.height = height;
+        Carport.degree = degree;
+        Carport.shedDepth = shedDepth;
+
+    }
+
+    public static int getShedDepth() {
+        return shedDepth;
     }
 
     //------------------------ Roof ---------------------------------//
@@ -64,4 +81,13 @@ public class Carport {
 
     }
 
+    //--------------------------Shed---------------------------------//
+    public static int getShedPoles() throws CarportException {
+        return ShedCalculator.getShedPoles(width);
+    }
+
+    public static int getShedFrames() throws CarportException {
+        return ShedCalculator.getShedFrame(width);
+
+    }
 }

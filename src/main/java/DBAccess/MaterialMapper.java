@@ -52,7 +52,8 @@ public class MaterialMapper {
                      rs.getInt("Length"),
                      rs.getInt("Width"),
                      rs.getInt("Height"),
-                     rs.getDouble("Roof_Incline"));
+                     rs.getDouble("Roof_Incline"),
+                     rs.getInt("shedDepth"));
                     
                      
                return order;

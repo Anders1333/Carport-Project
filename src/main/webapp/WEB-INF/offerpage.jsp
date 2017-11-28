@@ -13,6 +13,7 @@
         <title>JSP Page</title>
         
         <% double totalPrice = (double) request.getAttribute("totalPrice"); %>
+        <% Carport carport = (Carport) request.getAttribute("carport"); %>
         
         
     </head>
@@ -27,6 +28,10 @@
         HERE GOES YOUR DRAWING
         <br>
         <br>
+        CARPORT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        <br>
+        <%=carport.getShedDepth()%>
+        
 
         
         <br>
