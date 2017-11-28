@@ -26,8 +26,8 @@
             <ul>
                 <hr />
                 <li class="showButton"><a data-target="one">SHOW ALL</a></li>
-                <li class="showButton"><a data-target="two">TWO</a></li>
-                <li class="showButton"><a data-target="three">THREE</a></li>
+                <li class="showButton"><a data-target="two">Two</a></li>
+                <li class="showButton"><a data-target="three">Pending Orders</a></li>
                 <hr />
             </ul>
         </div>
@@ -42,29 +42,56 @@
                 <div id="allUsersDiv">
                     <ul>
                         <% for (int i = 0; i < userList.size(); i++) {%>
-                         <li>
+                        <li>
                             <form name = "getOrders" action="FrontController" method="POST">
                                 <button type = "submit">
-                                <%=userList.get(i)%>
-                                <input type="hidden" name="command" value="getOrders">
-                                <input type ="hidden" name="Username" value=<%=userList.get(i).getUsername()%>>
+                                    <%=userList.get(i)%>
+                                    <input type="hidden" name="command" value="getOrders">
+                                    <input type ="hidden" name="Username" value=<%=userList.get(i).getUsername()%>>
                                 </button>
                             </form>
                         </li>
-                         <br>
+                        <br>
                         <%}%>   
                     </ul>
                 </div>
             </div>
-                    
+
             <!-- The second content (Show all users w/ order(s)) -->
             <div class="tab2-c tab" id="two">
                 <p>Insert showUsersWithOrders() function</p>
             </div>
-            
+
             <!-- The third content (Show all users w/o order(s)) -->
             <div class="tab3-c tab" id="three">
-                <p>Insert showUsersWithoutOrders() function</p>
+                <div id="allUsersDiv">
+
+                    <ul>
+                        <% for (int i = 0; i < userList.size(); i++) {%>
+                        <li>
+
+
+                            <%if (userList.get(i).getGenerated().equalsIgnoreCase("Y")) {%>
+                            <form name = "getOrders" action="FrontController" method="POST">
+                                <button type = "submit">
+                                    <%=userList.get(i)%>
+                                    <input type="hidden" name="command" value="getOrders">
+                                    <input type ="hidden" name="Username" value=<%=userList.get(i).getUsername()%>>
+                                </button>
+                            </form>
+                            <%}%>
+
+
+
+                        </li>
+                        <br>
+                        <%}%>   
+                    </ul>
+                </div>
+
+
+
+
             </div>  
 
             <div>
