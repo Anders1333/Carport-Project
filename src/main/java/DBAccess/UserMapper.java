@@ -69,7 +69,14 @@ public class UserMapper {
             ArrayList<User> userList = new ArrayList<>();
 
             while (rs.next()) {
-                User user = new User(rs.getString("User_name"), rs.getString("User_password"), rs.getString("User_phone"), rs.getString("User_email"), rs.getString("User_role"));
+                User user = new User(
+                        rs.getString("User_name"),
+                        rs.getString("User_password"), 
+                        rs.getString("User_phone"), 
+                        rs.getString("User_email"), 
+                        rs.getString("User_role"),
+                        rs.getString("User_hasGenerated"));
+                
                 userList.add(user);
             }
             return userList;
