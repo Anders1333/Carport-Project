@@ -28,7 +28,13 @@
                         Taghældning i: grader
                         <input type="number" name="degree" placeholder="i grader">
                         <br>
-                        
+                        Skur:
+                        <input id='skur' type="checkbox" name="toolshed" value="1" >
+                        <input id='skurhidden' type="hidden" name="toolshed" value="0" >
+                        <br>
+                        Dybte in: cm
+                        <input type="number" name="depth" placeholder="cm">
+                        <br>                           
                         <input type="submit" value="Submit">
                         
                     </form>
