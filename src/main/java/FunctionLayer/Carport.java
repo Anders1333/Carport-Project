@@ -26,6 +26,22 @@ public class Carport {
         Carport.degree = degree;
     }
 
+    public static int getLength() {
+        return length;
+    }
+
+    public static int getWidth() {
+        return width;
+    }
+
+    public static int getHeight() {
+        return height;
+    }
+
+    public static double getDegree() {
+        return degree;
+    }
+
     //------------------------ Roof ---------------------------------//
     public static double getInclineSheets() throws CarportException {
 
