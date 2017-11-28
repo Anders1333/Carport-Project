@@ -1,4 +1,3 @@
-
 package FunctionLayer;
 
 /**
@@ -6,6 +5,7 @@ package FunctionLayer;
  * @author AndersHC
  */
 public class Order {
+
     int id;
     String username;
     double price;
@@ -17,9 +17,6 @@ public class Order {
     int height;
     int shedDepth;
     double roofIncline;
-    
-    
-    
 
     public Order(int id, String username, double price, String date, String status) {
         this.id = id;
@@ -57,13 +54,16 @@ public class Order {
     public double getRoofIncline() {
         return roofIncline;
     }
-    
 
     @Override
     public String toString() {
-        return "Oder Info:  " + "  ID: " +id+ "  Username: " +username+ "  Price: " +price+ "kr." + "  Date: " +date+ "  Status: " +status;
+        return "<h5>" + "ORDER INFO" + "</h5>"
+                + "<strong><p>" + "Username: </strong>" + username
+                + "<strong><p>" + "Price: </strong>" + price + ",-" + "</p>"
+                + "<strong><p>" + "Date: </strong>" + date + "</p>"
+                + "<strong><p>" + "Status: </strong>" + status + "</p>"
+                ;
     }
-    
 
     public int getId() {
         return id;
@@ -104,5 +104,5 @@ public class Order {
     public void setStatus(String status) {
         this.status = status;
     }
-    
+
 }
