@@ -115,12 +115,18 @@
                 </tr>
                 <tr>
                     <td>45x195 mm. spærtræ ubh.</td>
-                    <td>480</td>
+                    <td>480 cm</td>
                     <td> <%=carport.getShedFrames()%></td>
                     <td>stk.</td>
                     <td>Rimme i sidder, sadles ned i stolper(skur)</td>
                 </tr>
-
+                <tr>
+                    <td>38x73 mm. taglægte T1</td>
+                    <td>540 cm</td>
+                    <td> 1</td>
+                    <td>stk.</td>
+                    <td>til z på bagside af dør</td>
+                </tr>
 
             </tbody>
 

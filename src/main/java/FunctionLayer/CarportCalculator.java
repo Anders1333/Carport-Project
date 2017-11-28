@@ -62,7 +62,7 @@ public class CarportCalculator {
         return meterial;
 
     }
-
+ 
     //------------------- BUILDING CALCULATIONS --------------------//
     public static int getSternPlanksCarport(int length) throws CarportException {
         int numberOfSternPlanksCarport = length / 600;
