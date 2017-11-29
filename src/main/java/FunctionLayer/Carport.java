@@ -106,4 +106,13 @@ public class Carport {
         return ShedCalculator.getShedFrame(width);
 
     }
+    
+    //--------------------------PRICE------------------------------//
+    
+    public static double getTotalPrice () throws CarportException{
+       
+        return PriceCalculation.getTotalPrice(length, width, height, degree);
+    
+    
+    }
 }
