@@ -71,6 +71,9 @@
     <!-- Placing Cross Stabilizer beams -->
     <line x1="55" y1="0" x2="<%=(numberOfRafters)*55%>" y2="<%=width%>" style="stroke:rgb(80,80,80);stroke-width:2" />
     <line x1="55" y1="<%=width%>" x2="<%=(numberOfRafters)*55%>" y2="0" style="stroke:rgb(80,80,80);stroke-width:2" />
+    
+    
+   
 </svg> 
 
 <br>
@@ -87,7 +90,29 @@
    <rect x="<%=length - 10%>" y="20" stroke-width="2px" width="10" height="<%=height -20%>" style="stroke:#000000; fill:#ffffff"></rect>
 <!-- Placing Rims -->
 <rect x="0" y="0" stroke-width ="1px" width="<%=length%>" height="20" fill-opacity="0.0" style="stroke:#000000; fill:#ffffff"></rect>
+</svg>
 
+
+<!-------------------------- Rooftiles --------------------------------------------->
+<svg width="1000" height="1000" viewBox="0 0 1000 1000"> 
+
+ <!-- Rooftiles test -->
+    
+    <% for ( int i = 0; i < length ; i += 25){%>
+<rect x="<%=i%>" y="0" stroke-width ="1px" width="30" height="40" fill-opacity="0.0" style="stroke:#FE2E2E; fill:#ffffff"></rect>
+     <% for ( int j = 35; j < width ; j += 35) {%>
+     <rect x="<%=i%>" y="<%=j%>" stroke-width="1px" width="30" height="40" fill-opacity="0.0" style="stroke:#FE2E2E; fill:#ffffff"></rect>
+   <%}%>
+   <%}%>
+   
+  
+   
+   
+   
+   
+
+  
+</svg>
    
     </body>
 </html>
