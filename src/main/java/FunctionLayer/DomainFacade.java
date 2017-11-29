@@ -11,8 +11,8 @@ public class DomainFacade {
         return UserMapper.login(username, password);
     }
 
-    public static User createUser(String username, String email, String password, String phone) throws CarportException {
-        User user = new User(username, email, password, phone, "customer");
+    public static User createUser(String username, String email, String password, String phone, String generated) throws CarportException {
+        User user = new User(username, email, password, phone, "customer", generated);
         UserMapper.createUser(user);
         
         return user;

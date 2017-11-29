@@ -77,18 +77,64 @@
                 <tr>
                     <td>10x10 cm tagsten</td>
                     <td></td>
-                    <td> <%=carport.getRoofMeterial() %></td>
+                    <td> <%=carport.getRoofMeterial()%></td>
                     <td>stk.</td>
                     <td>Tagsten til tag</td>
                 </tr>
-                
-                
+
+
+
+
+
             </tbody>
-            
-            
-            
+
+
+
+
         </table>
 
+
+        <br>
+        <br>
+        <br>
+        <%if (carport.getShedDepth() > 0) {%>
+        <table width="1000">
+            <tbody><tr>
+                    <th>Træ</th>
+                    <th>Længde</th>
+                    <th>Antal</th>
+                    <th>Unit</th>
+                    <th>Info</th>
+                </tr>
+                <tr>
+                    <td>97x97 mm.  trykimp. Stolpe</td>
+                    <td>300cm</td>
+                    <td> <%=carport.getShedPoles()%></td>
+                    <td>stk.</td>
+                    <td>Stolper nedgraves 90 cm. i jord + skråstiver(skur)</td>
+                </tr>
+                <tr>
+                    <td>45x195 mm. spærtræ ubh.</td>
+                    <td>480 cm</td>
+                    <td> <%=carport.getShedFrames()%></td>
+                    <td>stk.</td>
+                    <td>Rimme i sidder, sadles ned i stolper(skur)</td>
+                </tr>
+                <tr>
+                    <td>38x73 mm. taglægte T1</td>
+                    <td>540 cm</td>
+                    <td> 1</td>
+                    <td>stk.</td>
+                    <td>til z på bagside af dør</td>
+                </tr>
+
+            </tbody>
+
+
+
+
+        </table>
+        <%}%>
 
 
 
