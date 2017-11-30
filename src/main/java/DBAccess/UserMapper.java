@@ -87,7 +87,7 @@ public class UserMapper {
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, username);
             ps.setString(2, "generated");
-  
+            
             ResultSet rs = ps.executeQuery();
             ArrayList<Order> orderList = new ArrayList<>();
 
