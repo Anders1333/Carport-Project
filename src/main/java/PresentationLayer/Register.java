@@ -19,7 +19,7 @@ public class Register extends Command {
         
        
         if ( password1.equals( password2 ) ) {
-            User user = DomainFacade.createUser( username,email, password1,phone );
+            User user = DomainFacade.createUser( username,email, password1,phone, "N" );
             HttpSession session = request.getSession();
             session.setAttribute( "user", user );
             session.setAttribute( "role", user.getRole() );

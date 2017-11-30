@@ -15,9 +15,8 @@ public class TestMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        double value1 = 1.95;
-        double value2 = value1 *2;
-        System.out.println(value2);
+       String stringToPrint = "\"Escaping the quotes\"";
+        System.out.println(stringToPrint);
     }
     
 }

@@ -25,7 +25,7 @@ public class PackListGetter extends Command {
 //        
 
         Order order = DomainFacade.getSingleOrder(orderId);
-        Carport Carport = new Carport(order.getLength(), order.getWidth(), order.getHeight(), order.getRoofIncline());
+        Carport Carport = new Carport(order.getLength(), order.getWidth(), order.getHeight(), order.getRoofIncline(), order.getShedDepth());
 
         request.setAttribute("carport", Carport);
 

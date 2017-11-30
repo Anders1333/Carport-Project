@@ -11,8 +11,8 @@ public class DomainFacade {
         return UserMapper.login(username, password);
     }
 
-    public static User createUser(String username, String email, String password, String phone) throws CarportException {
-        User user = new User(username, email, password, phone, "customer");
+    public static User createUser(String username, String email, String password, String phone, String generated) throws CarportException {
+        User user = new User(username, email, password, phone, "customer", generated);
         UserMapper.createUser(user);
         
         return user;
@@ -41,6 +41,13 @@ public class DomainFacade {
 
     public static double getTotalPrice(Carport carport) throws CarportException {
         return PriceCalculation.getTotalPrice(carport);
+    
+    }
+
+    public static void saveOrder(User user, Carport carport) throws CarportException {
+        MaterialMapper.saveOrder(carport, user);
+        UserMapper.updateHas_Generated(user);
+    
     
     }
 

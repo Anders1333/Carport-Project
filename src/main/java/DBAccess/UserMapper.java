@@ -69,7 +69,14 @@ public class UserMapper {
             ArrayList<User> userList = new ArrayList<>();
 
             while (rs.next()) {
-                User user = new User(rs.getString("User_name"), rs.getString("User_password"), rs.getString("User_phone"), rs.getString("User_email"), rs.getString("User_role"));
+                User user = new User(
+                        rs.getString("User_name"),
+                        rs.getString("User_email"),
+                        rs.getString("User_password"),
+                        rs.getString("User_phone"),
+                        rs.getString("User_role"),
+                        rs.getString("User_hasGenerated"));
+
                 userList.add(user);
             }
             return userList;
@@ -87,7 +94,7 @@ public class UserMapper {
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, username);
             ps.setString(2, "generated");
-            
+
             ResultSet rs = ps.executeQuery();
             ArrayList<Order> orderList = new ArrayList<>();
 
@@ -101,6 +108,19 @@ public class UserMapper {
             throw new CarportException("Couldnt get Orders for " + username);
         }
 
+    }
+
+    public static void updateHas_Generated(User user) throws CarportException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE Users"
+                    + "SET User_hasGenerated = 'Y'"
+                    + "WHERE User_name = ?;";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, "Y");
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new CarportException("Something went wrong, please try again later.");
+        }
     }
 
 }

@@ -15,6 +15,7 @@ public class Order {
     int length;
     int width;
     int height;
+    int shedDepth;
     double roofIncline;
 
     public Order(int id, String username, double price, String date, String status) {
@@ -25,11 +26,12 @@ public class Order {
         this.status = status;
     }
 
-    public Order(int length, int width, int height, double roofIncline) {
+    public Order(int length, int width, int height, double roofIncline, int shedDepth) {
         this.length = length;
         this.width = width;
         this.height = height;
         this.roofIncline = roofIncline;
+        this.shedDepth = shedDepth;
     }
 
     public int getLength() {
@@ -43,6 +45,11 @@ public class Order {
     public int getHeight() {
         return height;
     }
+
+    public int getShedDepth() {
+        return shedDepth;
+    }
+    
 
     public double getRoofIncline() {
         return roofIncline;

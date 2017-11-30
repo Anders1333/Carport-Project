@@ -20,7 +20,7 @@ public class UserGetter extends Command {
        
         ArrayList<User> userList = DomainFacade.getUsers();
         HttpSession session = request.getSession();
-        session.setAttribute( "userList", userList );
+        request.setAttribute( "userList", userList );
         
         return "employeepage";
     }

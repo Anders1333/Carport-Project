@@ -5,6 +5,7 @@
  */
 package DBAccess;
 
+import FunctionLayer.Carport;
 import FunctionLayer.CarportException;
 import FunctionLayer.Order;
 import FunctionLayer.User;
@@ -52,7 +53,8 @@ public class MaterialMapper {
                      rs.getInt("Length"),
                      rs.getInt("Width"),
                      rs.getInt("Height"),
-                     rs.getDouble("Roof_Incline"));
+                     rs.getDouble("Roof_Incline"),
+                     rs.getInt("shedDepth"));
                     
                      
                return order;
@@ -65,4 +67,33 @@ public class MaterialMapper {
         
        
     }
+
+    public static void saveOrder(Carport carport, User user) throws CarportException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO Orders "
+                    + "(User_name, Price, Status, Length, Width, Height, Roof_Incline, shedDepth) "
+                    +   "VALUES (?,?,?,?,?,?,?,?);";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, user.getUsername());
+            ps.setDouble(2, carport.getTotalPrice());
+            ps.setString(3, "generated");
+            ps.setInt(4, carport.getLength());
+            ps.setInt(5, carport.getWidth());
+            ps.setInt(6, carport.getHeight());
+            ps.setDouble(7, carport.getDegree());
+            ps.setInt(8, carport.getShedDepth());
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new CarportException("Kunne ikke placere din order");
+        }
+    
+    
+    }
+
+   
+
+   
+
+    
 }
