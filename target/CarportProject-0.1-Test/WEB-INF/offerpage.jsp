@@ -19,9 +19,20 @@
     </head>
     <body>
         <h1>The total price is:</h1>
-
+        
+        
+        Ønsker du at gemme dette tilbud?
+        <form name="gemtilbud" action="FrontController"
+        
+        
+        
+        <br>
+        
+        
+        
+        
         HERE GOES YOUR PRICE
-        <%= totalPrice%> DKK
+        <%= carport.getTotalPrice() %> DKK
         
         
         <br>

@@ -44,4 +44,11 @@ public class DomainFacade {
     
     }
 
+    public static void saveOrder(User user, Carport carport) throws CarportException {
+        MaterialMapper.saveOrder(carport, user);
+        UserMapper.updateHas_Generated(user);
+    
+    
+    }
+
 }
