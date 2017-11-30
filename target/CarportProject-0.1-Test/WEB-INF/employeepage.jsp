@@ -35,37 +35,6 @@
 
 
 
-        <!-- This is the hidden content what will become visible by clicking the buttons in the User Navigator menu -->
-        <div class="tab-content-wrapper">
-            <!-- The first content (Show all users) -->
-            <div class="tab1-c tab" id="one" style="display: block;">
-                <div id="allUsersDiv">
-                    <ul>
-                        <% for (int i = 0; i < userList.size(); i++) {%>
-                        <li>
-                            <form name = "getOrders" action="FrontController" method="POST">
-                                <button type = "submit">
-                                    <%=userList.get(i)%>
-                                    <input type="hidden" name="command" value="getOrders">
-                                    <input type ="hidden" name="Username" value=<%=userList.get(i).getUsername()%>>
-                                </button>
-                            </form>
-                        </li>
-                        <br>
-                        <%}%>   
-                    </ul>
-                </div>
-            </div>
-
-            <!-- The second content (Show all users w/ order(s)) -->
-            <div class="tab2-c tab" id="two">
-                <p>Insert showUsersWithOrders() function</p>
-            </div>
-
-            <!-- The third content (Show all users w/o order(s)) -->
-            <div class="tab3-c tab" id="three">
-                <div id="allUsersDiv">
-
                     <ul>
                         <% for (int i = 0; i < userList.size(); i++) {%>
                         <li>
