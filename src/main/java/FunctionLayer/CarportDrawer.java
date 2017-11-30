@@ -18,11 +18,9 @@ public static String createDrawing(Carport carport) throws CarportException{
     
     String drawingHTML = "";
     
-   int VerticalPolesNumber = carport.getVerticalPoles()/2;
-   int width = carport.getWidth();
-   int length = carport.getLength(); 
-   int height = carport.getHeight();
-    
+  
+  
+     int VerticalPolesNumber = CarportCalculator.getVerticalPolesAmount(carport);
   
     
     

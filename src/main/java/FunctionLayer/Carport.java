@@ -30,8 +30,8 @@ public class Carport {
     }
 
     //  construter for a Carport with a shed
-    public Carport(int Length, int width, int height, double degree, int shedDepth) {
-        Carport.length = Length;
+    public Carport(int length, int width, int height, double degree, int shedDepth) {
+        Carport.length = length;
         Carport.width = width;
         Carport.height = height;
         Carport.degree = degree;
@@ -59,60 +59,5 @@ public class Carport {
         return degree;
     }
 
-    //------------------------ Roof ---------------------------------//
-    public static double getInclineSheets() throws CarportException {
-
-        return CarportCalculator.getInclineSheet(width, length, degree);
-
-    }
-
-    public static double getRoofMeterial() throws CarportException {
-        return CarportCalculator.getRoofMeterial(width, length, degree);
-
-    }
-
-    public static int getTopBattens() throws CarportException {
-        return CarportCalculator.getTopBattens(length);
-
-    }
-
-    //-------------------------- Carport --------------------------//
-    public static int getSternPalnksCarport() throws CarportException {
-        return CarportCalculator.getSternPlanksCarport(length);
-
-    }
-
-    public static int getVerticalPoles() throws CarportException {
-        return CarportCalculator.getVerticalPoles(length);
-
-    }
-
-    public static int getHorizontalPolesLength() throws CarportException {
-        return CarportCalculator.getHorizontalPolesLength(length);
-
-    }
-
-    public static int getHorizontalPolesWidth() throws CarportException {
-        return CarportCalculator.getHorisontalPolesWidth(width);
-
-    }
-
-    //--------------------------Shed---------------------------------//
-    public static int getShedPoles() throws CarportException {
-        return ShedCalculator.getShedPoles(width);
-    }
-
-    public static int getShedFrames() throws CarportException {
-        return ShedCalculator.getShedFrame(width);
-
-    }
-    
-    //--------------------------PRICE------------------------------//
-    
-    public static double getTotalPrice () throws CarportException{
-       
-        return PriceCalculation.getTotalPrice(length, width, height, degree);
-    
-    
-    }
+  
 }
