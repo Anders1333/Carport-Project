@@ -29,7 +29,7 @@ public class CarportBuilder extends Command {
             int shedDepth = Integer.parseInt(request.getParameter("depth"));
             carport = new Carport(length, width, height, degree, shedDepth);
         } else {
-            carport = new Carport(length, width, height, degree);
+            carport = new Carport(length, width, height, degree, 0);
 
         }
 

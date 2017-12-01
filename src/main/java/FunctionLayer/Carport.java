@@ -21,11 +21,12 @@ public class Carport {
     private static int shedDepth;
 
     // construter for a Carport without a shed
-    public Carport(int Length, int width, int height, double degree) {
-        Carport.length = Length;
-        Carport.width = width;
-        Carport.height = height;
-        Carport.degree = degree;
+    public Carport(int length, int width, int height, double degree) {
+        this(length,width,height,degree,0);
+//        Carport.length = Length;
+//        Carport.width = width;
+//        Carport.height = height;
+//        Carport.degree = degree;
 
     }
 

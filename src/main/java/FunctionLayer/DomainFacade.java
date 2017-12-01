@@ -40,7 +40,11 @@ public class DomainFacade {
     }
 
     public static double getTotalPrice(Carport carport) throws CarportException {
-        return PriceCalculation.getTotalPrice(carport);
+        return PriceCalculation.getTotalPrice(
+        carport.getLength(),
+        carport.getWidth(),
+        carport.getHeight(),
+        carport.getDegree());
     
     }
 
