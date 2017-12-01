@@ -99,7 +99,12 @@ public class UserMapper {
             ArrayList<Order> orderList = new ArrayList<>();
 
             while (rs.next()) {
-                Order order = new Order(rs.getInt("Order_id"), rs.getString("User_name"), rs.getDouble("Price"), rs.getString("Date"), rs.getString("Status"));
+                Order order = new Order(
+                        rs.getInt("Order_id"), 
+                        rs.getString("User_name"), 
+                        rs.getDouble("Price"),
+                        rs.getString("Date"), 
+                        rs.getString("Status"));
                 orderList.add(order);
             }
             return orderList;

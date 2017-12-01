@@ -5,115 +5,60 @@
  */
 package FunctionLayer;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author DD
  */
 public class Carport {
 
-    private static int length;
-    private static int width;
-    private static int height;
-    private static double degree;
-    private static int shedDepth;
+    private int length;
+    private int width;
+    private int height;
+    private double degree;
+    private int shedDepth;
 
     // construter for a Carport without a shed
     public Carport(int length, int width, int height, double degree) {
-        this(length,width,height,degree,0);
-//        Carport.length = Length;
-//        Carport.width = width;
-//        Carport.height = height;
-//        Carport.degree = degree;
+        this(length, width, height, degree, 0);
+//        this.length = Length;
+//        this.width = width;
+//        this.height = height;
+//        this.degree = degree;
 
     }
 
     //  construter for a Carport with a shed
-    public Carport(int Length, int width, int height, double degree, int shedDepth) {
-        Carport.length = Length;
-        Carport.width = width;
-        Carport.height = height;
-        Carport.degree = degree;
-        Carport.shedDepth = shedDepth;
+    public Carport(int length, int width, int height, double degree, int shedDepth) {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.degree = degree;
+        this.shedDepth = shedDepth;
 
     }
 
-    public static int getShedDepth() {
+    public void setShedDepth(int shedDepth) {
+        this.shedDepth = shedDepth;
+    }
+
+    public int getShedDepth() {
         return shedDepth;
     }
 
-    public static int getLength() {
+    public int getLength() {
         return length;
     }
 
-    public static int getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public static int getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public static double getDegree() {
+    public double getDegree() {
         return degree;
     }
 
-    //------------------------ Roof ---------------------------------//
-    public static double getInclineSheets() throws CarportException {
-
-        return CarportCalculator.getInclineSheet(width, length, degree);
-
-    }
-
-    public static double getRoofMeterial() throws CarportException {
-        return CarportCalculator.getRoofMeterial(width, length, degree);
-
-    }
-
-    public static int getTopBattens() throws CarportException {
-        return CarportCalculator.getTopBattens(length);
-
-    }
-
-    //-------------------------- Carport --------------------------//
-    public static int getSternPalnksCarport() throws CarportException {
-        return CarportCalculator.getSternPlanksCarport(length);
-
-    }
-
-    public static int getVerticalPoles() throws CarportException {
-        return CarportCalculator.getVerticalPoles(length);
-
-    }
-
-    public static int getHorizontalPolesLength() throws CarportException {
-        return CarportCalculator.getHorizontalPolesLength(length);
-
-    }
-
-    public static int getHorizontalPolesWidth() throws CarportException {
-        return CarportCalculator.getHorisontalPolesWidth(width);
-
-    }
-
-    //--------------------------Shed---------------------------------//
-    public static int getShedPoles() throws CarportException {
-        return ShedCalculator.getShedPoles(width);
-    }
-
-    public static int getShedFrames() throws CarportException {
-        return ShedCalculator.getShedFrame(width);
-
-    }
-    
-    //--------------------------PRICE------------------------------//
-    
-    public static double getTotalPrice () throws CarportException{
-       
-        return PriceCalculation.getTotalPrice(length, width, height, degree);
-    
-    
-    }
 }

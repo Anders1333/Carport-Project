@@ -76,7 +76,7 @@ public class MaterialMapper {
                     +   "VALUES (?,?,?,?,?,?,?,?);";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, user.getUsername());
-            ps.setDouble(2, carport.getTotalPrice());
+            ps.setDouble(2, 4000); //HardCoded price for now !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
             ps.setString(3, "generated");
             ps.setInt(4, carport.getLength());
             ps.setInt(5, carport.getWidth());
