@@ -64,6 +64,16 @@ public class CarportCalculator {
     }
  
     //------------------- BUILDING CALCULATIONS --------------------//
+    
+    
+    public static int getRafterAmount(Carport carport){
+        int numberOfRafters = carport.getLength() /55;
+        if (carport.getLength() % 55 > 30){
+            numberOfRafters += 1;
+        }
+        return numberOfRafters;
+    }
+    
     public static int getSternPlanksCarport(Carport carport) throws CarportException {
         int numberOfSternPlanksCarport = carport.getLength() / 600;
         if (carport.getLength() % 600 > 0) {
@@ -90,12 +100,6 @@ public class CarportCalculator {
         return rimAmount;
     }
 
-    public static int getHorisontalRimsWidth(Carport carport) throws CarportException {
-        int poleWidth = carport.getWidth() / 480;
-        if (poleWidth % 480 > 0) {
-            poleWidth += 1;
-        }
-        return poleWidth;
-    }
+
 
 }

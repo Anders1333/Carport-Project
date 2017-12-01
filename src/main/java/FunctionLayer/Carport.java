@@ -14,48 +14,48 @@ import java.util.logging.Logger;
  */
 public class Carport {
 
-    private static int length;
-    private static int width;
-    private static int height;
-    private static double degree;
-    private static int shedDepth;
+    private int length;
+    private int width;
+    private int height;
+    private double degree;
+    private int shedDepth;
 
     // construter for a Carport without a shed
     public Carport(int Length, int width, int height, double degree) {
-        Carport.length = Length;
-        Carport.width = width;
-        Carport.height = height;
-        Carport.degree = degree;
+        this.length = Length;
+        this.width = width;
+        this.height = height;
+        this.degree = degree;
 
     }
 
     //  construter for a Carport with a shed
     public Carport(int length, int width, int height, double degree, int shedDepth) {
-        Carport.length = length;
-        Carport.width = width;
-        Carport.height = height;
-        Carport.degree = degree;
-        Carport.shedDepth = shedDepth;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.degree = degree;
+        this.shedDepth = shedDepth;
 
     }
 
-    public static int getShedDepth() {
+    public int getShedDepth() {
         return shedDepth;
     }
 
-    public static int getLength() {
+    public int getLength() {
         return length;
     }
 
-    public static int getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public static int getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public static double getDegree() {
+    public double getDegree() {
         return degree;
     }
 
