@@ -12,6 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <% Carport carport = (Carport) request.getAttribute("carport");%>
+        <% double totalPrice = (double) request.getAttribute("totalPrice"); %>
+       
         
         
     </head>
@@ -56,23 +58,27 @@
     <svg width="1000" height="1000" viewBox="0 0 1000 1000"> 
    
    <!-- Placing Poles ( Width, carport.getVerticalPoles  -->
-   <rect x="0" y ="0" stroke-width ="2px" width="10" height="10" style="stroke:#000000; fill:#ffffff"></rect>
-   <rect x="0" y ="<%=width-10%>" stroke-width ="2px" width="10" height ="10" style="stroke:#000000; fill:#ffffff"></rect>"
-   <% for ( int i = 1; i < VerticalPolesNumber-1 ; i++){%>
-   <% int offset = i*195;%>
-   <rect x="<%=offset%>" y="0" stroke-width="2px" width="10" height="10" style="stroke:#000000; fill:#ffffff"></rect>
-   <rect x="<%=offset%>" y="<%=width-10%>" stroke-width="2px" width="10" height="10" style="stroke:#000000; fill:#ffffff"></rect>
+  
+   <rect x="80" y="25" stroke-width="2px" width="10" height="10" style="stroke:#000000; fill:#ffffff"></rect>
+   <rect x="80" y="<%=width-35%>" stroke-width="2px" width="10" height="10" style="stroke:#000000; fill:#ffffff"></rect>
+   <% for ( int i = 280; i < length ; i+=200){%>
+  
+   <rect x="<%=i%>" y="25" stroke-width="2px" width="10" height="10" style="stroke:#000000; fill:#ffffff"></rect>
+   <rect x="<%=i%>" y="<%=width-35%>" stroke-width="2px" width="10" height="10" style="stroke:#000000; fill:#ffffff"></rect>
    <%}%>
-   <rect x="<%=length - 10%>" y="0" stroke-width="2px" width="10" height="10" style="stroke:#000000; fill:#ffffff"></rect>
-   <rect x="<%=length - 10%>" y="<%=width-10%>" stroke-width="2px" width="10" height="10" style="stroke:#000000; fill:#ffffff"></rect>
+  
+   <!-- Placing crossbeams-->
+   <rect x="5" y="25" stroke-width="2px" width="<%=length-5%>" height="5" fill-opacity="0.0" style="stroke:#000000; fill:#ffffff"></rect>
+   <rect x="5" y="<%=width-30%>" stroke-width="2px" width="<%=length-5%>" height="5" fill-opacity="0.0" style="stroke:#000000; fill:#ffffff"></rect>
+   
    
    
      <!-- Placing Horizontals (rim) -->
-   <rect x="0" y="0" stroke-width ="1px" width="<%=length%>" height="5" fill-opacity="0.0" style="stroke:#000000; fill:#ffffff"></rect>
-   <rect x="0" y="<%= width-5%>" stroke-width="1px" width="<%=length%>" height="5" fill-opacity="0.0" style="stroke:#000000; fill:#ffffff"></rect>
+   <rect x="5" y="0" stroke-width ="1px" width="<%=length-5%>" height="2.5" fill-opacity="0.0" style="stroke:#000000; fill:#ffffff"></rect>
+   <rect x="5" y="<%= width-2.5%>" stroke-width="1px" width="<%=length-5%>" height="2.5" fill-opacity="0.0" style="stroke:#000000; fill:#ffffff"></rect>
    
-   <rect x="0" y="5" stroke-width ="1px" width="5" height="<%=width-10%>" fill-opacity="0.0" style="stroke:#000000; fill:#ffffff"></rect>
-   <rect x="<%=length-5%>" y="5" stroke-width ="1px" width="5" height="<%=width-10%>" fill-opacity="0.0" style="stroke:#000000; fill:#ffffff"></rect>
+   <rect x="0" y="0" stroke-width ="1px" width="5" height="<%=width%>" fill-opacity="0.0" style="stroke:#000000; fill:#ffffff"></rect>
+   <rect x="<%=length%>" y="0" stroke-width ="1px" width="5" height="<%=width%>" fill-opacity="0.0" style="stroke:#000000; fill:#ffffff"></rect>
 
    
     <!-- Placing Horizontals (Rafters) -->
@@ -86,8 +92,18 @@
     <line x1="55" y1="0" x2="<%=(numberOfRafters)*55%>" y2="<%=width%>" style="stroke:rgb(80,80,80);stroke-width:2" />
     <line x1="55" y1="<%=width%>" x2="<%=(numberOfRafters)*55%>" y2="0" style="stroke:rgb(80,80,80);stroke-width:2" />
     
+    <!-- Placing measuring lines -->
+    <line x1="5" y1="<%=width+20%>" x2="<%=length%>" y2="<%=width+20%>" style="stroke:rgb(80,80,80);stroke-width:2" />
+    <line x1="5" y1="<%=width+10%>" x2="5" y2="<%=width+30%>" style="stroke:rgb(80,80,80);stroke-width:2" />
+    <line x1="<%=length%>" y1="<%=width+10%>" x2="<%=length%>" y2="<%=width+30%>" style="stroke:rgb(80,80,80);stroke-width:2" />
     
-   
+    <line x1="<%=length+30%>" y1="0" x2="<%=length+30%>" y2="<%=width%>" style="stroke:rgb(80,80,80);stroke-width:2" />
+    <line x1="<%=length+20%>" y1="0" x2="<%=length+40%>" y2="0" style="stroke:rgb(80,80,80);stroke-width:2" />
+    <line x1="<%=length+20%>" y1="<%=width%>" x2="<%=length+40%>" y2="<%=width%>" style="stroke:rgb(80,80,80);stroke-width:2" />
+    
+    <!-- Placing numbers -->
+    <text x="<%=(length/2)-40%>" y="<%=width+50%>" font-family="sans-serif" font-size="15px"><%=length%> cm</text>
+    <text x="<%=length + 50%>" y="<%=width/2%>" font-family="sans-serif" font-size="15px"><%=height%> cm</text>
 </svg> 
 
 <br>
