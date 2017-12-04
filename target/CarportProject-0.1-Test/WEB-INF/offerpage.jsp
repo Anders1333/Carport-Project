@@ -4,6 +4,8 @@
     Author     : AndersHC
 --%>
 
+<%@page import="FunctionLayer.CarportDrawer"%>
+<%@page import="FunctionLayer.CarportCalculator"%>
 <%@page import="FunctionLayer.Carport"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,10 +23,15 @@
 
 
         Ønsker du at gemme dette tilbud?
+
         <form name="gemtilbud" action="FrontController">
 
 
         </form>
+
+
+
+        <form name="gemtilbud" action="FrontController"></form>
 
 
 
@@ -47,5 +54,12 @@
 
 
         <br>
+
+        <svg width="1000" height="1000" viewBox="0 0 1000 1000">
+        <%= CarportDrawer.createPoles(carport)%>
+
+        </svg>
+
+
     </body>
 </html>

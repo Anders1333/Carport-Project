@@ -39,14 +39,10 @@ public class DomainFacade {
         return order;
     }
 
-//    public static double getTotalPrice(Carport carport) throws CarportException {
-//        return PriceCalculation.getTotalPrice(
-//        carport.getLength(),
-//        carport.getWidth(),
-//        carport.getHeight(),
-//        carport.getDegree());
-//    
-//    }
+    public static double getTotalPrice(Carport carport) throws CarportException {
+        return 100;
+    
+    }
 
     public static void saveOrder(User user, Carport carport) throws CarportException {
         MaterialMapper.saveOrder(carport, user);
