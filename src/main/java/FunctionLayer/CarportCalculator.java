@@ -66,6 +66,66 @@ public class CarportCalculator {
     //------------------- BUILDING CALCULATIONS --------------------//
     
     
+    
+    public static double getSkeletonPostsLengthShort(Carport carport){
+        double postLength = (carport.getShedDepth())*0.8;
+        return postLength;
+        
+    }
+    
+    
+    public static int getSkeletonPostsAmountShort(Carport carport){
+        int postAmount = 4;
+        return postAmount;
+    }
+    
+    
+    public static double getSkeletonPostsLengthLong(Carport carport){
+        double postLength = (carport.getWidth()-60)/2;
+        return postLength;
+    }
+    
+    public static int getSkeletonPostsAmountLong(Carport carport){
+        int postAmount = 12; 
+                
+                return postAmount;
+    }
+    
+    
+    
+    public static int getShedBoardsLength(Carport carport){
+        double shedBoardsLength = carport.getHeight()-20;
+        return (int) shedBoardsLength;
+    }
+    
+    
+    
+    public static int getShedBoardsAmount(Carport carport){
+        double numberOfBoardsLong = (((carport.getWidth())-60)/10);
+        double numberOfBoardsShort = (((carport.getShedDepth())-20)/10);
+        double totalNumberOfBoards = (numberOfBoardsLong+numberOfBoardsShort)*1.5;
+        
+        return (int) totalNumberOfBoards;
+    }
+    
+    public static double getRoofPlatesAmount(Carport carport){
+        double numberOfPlates = carport.getWidth()/90;
+        
+        double realNumber = Math.ceil(numberOfPlates);
+        
+        return realNumber;
+    }
+    
+    
+    
+    public static double getRoofPlatesLength(Carport carport){
+        double roofPlatesLength = carport.getLength();
+        
+        
+        return roofPlatesLength;
+        
+    }
+    
     public static int getRafterAmount(Carport carport){
         int numberOfRafters = carport.getLength() /55;
         if (carport.getLength() % 55 > 30){
@@ -85,7 +145,7 @@ public class CarportCalculator {
     public static int getVerticalPolesAmount(Carport carport) throws CarportException {
         int numberOfPoles = 1;
         numberOfPoles += carport.getLength() / 200;
-        return numberOfPoles * 2;
+        return numberOfPoles;
     }
     
     public static int getVerticalPolesLength(Carport carport) throws CarportException{
@@ -98,6 +158,11 @@ public class CarportCalculator {
             rimAmount += 1;
         }
         return rimAmount;
+    }
+
+    double getShedLatchLength(Carport carport) {
+        double latchLength = carport.getWidth()*0.8;
+        return latchLength;
     }
 
 

@@ -16,13 +16,15 @@ public class PacklistObject {
     int amount;
     String unit;
     String description;
+    double price;
 
-    public PacklistObject(String name, double length, int amount, String unit, String description) {
+    public PacklistObject(String name, double length, int amount, String unit, String description, double price) {
         this.name = name;
         this.length = length;
         this.amount = amount;
         this.unit = unit;
         this.description = description;
+        this.price = price;
     }
 
     @Override
@@ -71,5 +73,7 @@ public class PacklistObject {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+    public double getPrice(){
+        return price;
+    }
 }
