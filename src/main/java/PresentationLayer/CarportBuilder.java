@@ -31,7 +31,7 @@ public class CarportBuilder extends Command {
         }
         request.setAttribute("carport", carport);
 
-        if (user.getUsername() != null) {
+        if (user != null) {
             DomainFacade.saveOrder(user, carport);
         }
 
