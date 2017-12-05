@@ -8,24 +8,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 public class Login extends Command {
 
     @Override
-    String execute( HttpServletRequest request, HttpServletResponse response ) throws CarportException {
-        String username = request.getParameter( "username" );
-        String password = request.getParameter( "password" );
-        User user = DomainFacade.login( username, password );
-        HttpSession session = request.getSession();
-        session.setAttribute( "user", user );
-        session.setAttribute( "role", user.getRole() );
-        
-        //Generate List of users if employee is logging in//
-        if("employee".equalsIgnoreCase(user.getRole())){
-            ArrayList<User> userList = DomainFacade.getUsers();
-            request.setAttribute("userList", userList);
-        }
-        return user.getRole() + "page";
-    }
+    String execute(HttpServletRequest request, HttpServletResponse response) throws CarportException {
 
+ 
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            User user = DomainFacade.login(username, password);
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            session.setAttribute("role", user.getRole());
+
+            //Generate List of users if employee is logging in//
+            if ("employee".equalsIgnoreCase(user.getRole())) {
+                ArrayList<User> userList = DomainFacade.getUsers();
+                request.setAttribute("userList", userList);
+            }
+
+            return user.getRole() + "page";
+        
+    }
 }

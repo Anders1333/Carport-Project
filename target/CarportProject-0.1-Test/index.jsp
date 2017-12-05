@@ -14,6 +14,13 @@
     <body>
         <h1>Main page</h1>
         
+        
+        <a href="inputpage.jsp">
+            Proceed without login.
+            
+            
+        </a>
+        
         <table>
             <tr><td>Login</td>
                 <td>

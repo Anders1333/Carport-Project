@@ -13,20 +13,23 @@ import DBAccess.MaterialMapper;
  */
 public class PriceCalculation {
     
-    public static double getTotalPrice(Carport carport) throws CarportException{
-    
-    double inclineSheets = MaterialMapper.getPrice(18)* carport.getInclineSheets();
-   // double roofMeterial = MaterialMapper.getPrice(0) //mangler i DB
-    double topBatten = MaterialMapper.getPrice(26)* carport.getTopBattens();
-    double SternSheet = MaterialMapper.getPrice(18) * carport.getSternPalnksCarport();
-    // double verticalPoles = MaterialMapper.getPrice(0) //mangler i DB
-    // double horizontalPolesLength = MaterialMapper.getPrice(0) //mangler i DB
-    // double horizontalPolesWidth = MaterialMapper.getPrice(0) //mangler i DB
-    
-    double carportTotalPrice = inclineSheets+topBatten+SternSheet;
-        
-    return carportTotalPrice;
-    }
+//    public static double getTotalPrice(int length, int width, int height, double degree) throws CarportException{
+//    Carport carport = new Carport(length, width, height, degree);
+//        
+//        
+//    double inclineSheets = MaterialMapper.getPrice(18)* (CarportCalculator.getInclineLength(carport.getLength(), carport.getWidth(), carport.getDegree()))*carport.getInclineSheets();
+//    double roofMeterial = MaterialMapper.getPrice(0) //mangler i DB
+//    double topBatten = MaterialMapper.getPrice(26)* carport.getLength();
+//    double SternSheet = MaterialMapper.getPrice(18) * carport.getLength()* carport.getSternPalnksCarport();
+//     double verticalPoles = MaterialMapper.getPrice(0) //mangler i DB
+//     double horizontalPolesLength = MaterialMapper.getPrice(0) //mangler i DB
+//     double horizontalPolesWidth = MaterialMapper.getPrice(0) //mangler i DB
+//    
+//    double carportTotalPrice = inclineSheets+topBatten+SternSheet;
+//        
+//    return carportTotalPrice;
+//    }
+
     
     
     

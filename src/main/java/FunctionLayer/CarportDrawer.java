@@ -3,39 +3,62 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PresentationLayer;
-
-import FunctionLayer.Carport;
+package FunctionLayer;
 
 /**
  *
  * @author AndersHC
  */
-public class TestMain {
+public class CarportDrawer {
+    
+    
+    public static String createPoles(Carport carport){
+        
+        
+          
+    int length = carport.getLength();
+    int width = carport.getWidth();
+        
+        
+        
+        String drawing = 
+                "   <!-- Placing Poles ( Width, carport.getVerticalPoles  -->\n" +
+"  \n" +
+"   <rect x=\"80\" y=\"25\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
+"   <rect x=\"80\" y=\""+(width-35)+"\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n";
+    for ( int i = 280; i < length ; i+=200){ 
+    drawing += 
+"   <rect x=\""+i+"\" y=\"25\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
+"   <rect x=\""+i+"\" y=\""+(width-35)+"\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
+"   \n" ; 
+            }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Carport carport = new Carport(600,400,300,30.0);
-       int length = carport.getLength();
+
+
+        return drawing;
+    }
+    
+    
+public static String createDrawing(Carport carport) throws CarportException{
+    
+    
+    int length = carport.getLength();
     int width = carport.getWidth();
     int height = carport.getHeight();
     double roofIncline = carport.getDegree();
     int shedDepth = carport.getShedDepth();
     
     String drawingHTML = "    <svg width=\"1000\" height=\"1000\" viewBox=\"0 0 1000 1000\"> \n" +
-"   \n" +
-"   <!-- Placing Poles ( Width, carport.getVerticalPoles  -->\n" +
-"  \n" +
 "   <rect x=\"80\" y=\"25\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
-"   <rect x=\"80\" y=\""+width+"-35\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
-"   <% for ( int i = 280; i < "+length+" ; i+=200){%>\n" +
-"  \n" +
-"   <rect x=\"<%=i%>\" y=\"25\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
-"   <rect x=\"<%=i%>\" y=\""+width+"-35\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
-"   <%}%>\n" +
-"  \n" +
+"   <rect x=\"80\" y=\""+(width-35)+"\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n";
+    for ( int i = 280; i < length ; i+=200){ 
+    drawingHTML += 
+"   <rect x=\""+i+"\" y=\"25\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
+"   <rect x=\""+i+"\" y=\""+(width-35)+"\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
+"   \n" ; 
+    }
+    
+    drawingHTML +=
 "   <!-- Placing crossbeams-->\n" +
 "   <rect x=\"5\" y=\"25\" stroke-width=\"2px\" width=\"<%=length-5%>\" height=\"5\" fill-opacity=\"0.0\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
 "   <rect x=\"5\" y=\"<%=width-30%>\" stroke-width=\"2px\" width=\"<%=length-5%>\" height=\"5\" fill-opacity=\"0.0\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
@@ -91,7 +114,12 @@ public class TestMain {
 "<rect x=\"0\" y=\"0\" stroke-width =\"1px\" width=\"<%=length%>\" height=\"20\" fill-opacity=\"0.0\" style=\"stroke:#000000; fill:#ffffff\"></rect>\n" +
 "</svg>";
     
-        System.out.println(drawingHTML);
-    }
+  
+  
+     int VerticalPolesNumber = CarportCalculator.getVerticalPolesAmount(carport);
+  
     
+    
+    return drawingHTML;
+}
 }
