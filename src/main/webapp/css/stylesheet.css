@@ -12,12 +12,40 @@ and open the template in the editor.
 /* These classes are the "tabs" on the employeepage that are hidden. Used in empfaderjs.js" */
 .tab1-c , .tab2-c, .tab3-c, .tab4-c{display:none;}
 
+* {
+    padding: 0;
+    margin: 0;
+}
 
 body {
-    background-color: #fff;
+    
 }
 
 *:focus {outline: none}
+
+.navbar-brand {
+    padding: 15px 0px !important;
+    text-transform: uppercase;
+}
+
+.fogNavbar {
+    
+    background-color: transparent !important;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+
+    position: relative;
+    min-height: 50px;
+}
+
+.active-blue {
+    background-color: #2e70db !important;
+    color: #fff !important;
+}
+
+#allUsersDiv {
+    width: fit-content;
+}
 
 #allUsersDiv ul {
     list-style: none;
@@ -85,4 +113,61 @@ h5 {
     background-color: #ececec;
     border-radius: 5px;
     transition: background-color 0.5s ease;
+}
+
+.loginRegisterBox {
+    width: 400px;
+    background-color: lightgray;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#errorMessage {
+    width: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+.loginRegisterButton {
+    background-color: #2e70db;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    border-radius: 0 !important;
+    transition: background-color 0.2s ease;
+}
+.loginRegisterButton {
+    outline: none;
+}
+.loginRegisterButton:hover {
+    background-color: #255fbc !important;
+    transition: background-color 0.2s ease;
+    color: lightgray !important;
+}
+
+.loginRegisterContainer {
+    padding: 15px;
+    border-left: 2px solid #2e70db;
+    border-bottom: 2px solid #2e70db;
+    border-right: 2px solid #2e70db;
+    height: auto;
+    transition: 0.3s ease;
+}
+
+.tabNavButton {
+    cursor: pointer;
+}
+
+
+.br-1-w {
+    border-right: 1px solid rgba(22, 58, 117,0.2) !important;
+}
+
+.bl-1-w {
+    border-left: 1px solid rgba(22, 58, 117,0.2) !important;
 }
