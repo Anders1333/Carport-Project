@@ -13,7 +13,6 @@
         <title>JSP Page</title>
         <% Carport carport = (Carport) request.getAttribute("carport");%>
         <% double totalPrice = (double) request.getAttribute("totalPrice"); %>
-        <% Carport carport = (Carport) request.getAttribute("carport"); %>
         
         
     </head>
