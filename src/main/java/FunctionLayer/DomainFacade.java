@@ -4,7 +4,6 @@ import DBAccess.MaterialMapper;
 import DBAccess.UserMapper;
 import java.util.ArrayList;
 
-
 public class DomainFacade {
 
     public static User login(String username, String password) throws CarportException {
@@ -55,6 +54,11 @@ public class DomainFacade {
         UserMapper.saveAddress(user, street, streetNr, floor, city, zip, country);
     
     
+    
+    }
+
+    public static String checkAddress(User user) throws CarportException {
+       return UserMapper.checkAddress(user);
     
     }
 

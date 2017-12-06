@@ -153,4 +153,23 @@ public class UserMapper {
 
     }
 
+    public static String checkAddress(User user) throws CarportException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "Select * FROM Addresses WHERE User_name = ?;";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, user.getUsername());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getString("User_name");
+
+            } else {
+                return null;
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new CarportException("Could not validate the Address");
+        }
+
+    }
+
 }

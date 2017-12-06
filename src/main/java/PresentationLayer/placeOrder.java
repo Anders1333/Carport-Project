@@ -30,16 +30,18 @@ public class placeOrder extends Command {
         String zip = request.getParameter("zip");
         String country = request.getParameter("country");
 
-        DomainFacade.saveAddress(
-                user,
-                street,
-                streetNr,
-                floor,
-                city,
-                zip,
-                country);
-    
-    
+        if(DomainFacade.checkAddress(user) == null) {
+
+            DomainFacade.saveAddress(
+                    user,
+                    street,
+                    streetNr,
+                    floor,
+                    city,
+                    zip,
+                    country);
+        }
+
         return "invoicepage";
 
     }
