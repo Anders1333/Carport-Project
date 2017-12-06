@@ -119,8 +119,8 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE Users"
-                    + "SET User_hasGenerated = 'Y'"
-                    + "WHERE User_name = ?;";
+                    + " SET User_hasGenerated = 'Y'"
+                    + " WHERE User_name = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, user.getUsername());
             ps.execute();
