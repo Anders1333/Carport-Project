@@ -9,6 +9,9 @@ import FunctionLayer.Carport;
 import FunctionLayer.CarportException;
 import FunctionLayer.DomainFacade;
 import FunctionLayer.Order;
+import FunctionLayer.PacklistMaker;
+import FunctionLayer.PacklistObject;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,9 +28,9 @@ public class PackListGetter extends Command {
 //        
 
         Order order = DomainFacade.getSingleOrder(orderId);
-        Carport Carport = new Carport(order.getLength(), order.getWidth(), order.getHeight(), order.getRoofIncline(), order.getShedDepth());
-
-        request.setAttribute("carport", Carport);
+        Carport Carport = new Carport(order.getLength(), order.getWidth(), order.getHeight(), order.getRoofIncline());
+        ArrayList<PacklistObject> packlist = PacklistMaker.makePacklist(Carport);
+        request.setAttribute("packlist", packlist);
 
         return "packlistpage";
     }

@@ -16,6 +16,7 @@
 
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -25,20 +26,21 @@
     <body>        
         <!-- Navigation Bar -->
         <nav class="container-fluid fogNavbar navbar-default">
-            <div class="">
-                <div class="navbar-header" style="margin-right: 10px;">
-                    <a class="navbar-brand">Frontpage</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
-                </ul>
+            <div class="navbar-header" style="margin-right: 10px;">
+                <a class="navbar-brand">FOG</a>
+                <a class="navbar-brand registerTradeMark">®</a>
             </div>
+            <div class="navbar-header" style="margin-right: 10px;">
+                <a class="navbar-brand">Frontpage</a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li><a href="index.jsp" class="tabNavButton">Home</a></li>
+                <li><a href="contactPage.jsp" class="tabNavButton">KONTAKT OS</a></li>
+            </ul>
         </nav>
 
-        <div class="container-fluid " style="margin-top: 20px;">
+        <div class="container-fluid">
             <div class="loginRegisterBox">
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <div class="btn-group clearBtn fader" role="group">
@@ -53,77 +55,74 @@
                         <form  name="login" action="FrontController" method="POST">
                             <input type="hidden" name="command" value="login">
                             <div class="form-group">
-                                <label>Username:</label>
-                                <input name="username" class="form-control" type="text" name="username" placeholder ="Username">
+                                <label>Brugernavn:</label>
+                                <input name="username" class="form-control" type="text" name="username" placeholder ="Username" minlength="1" maxlength="45"  required>
                             </div>
                             <div class="form-group">
                                 <label>Password:</label>
-                                <input class="form-control" type="password" name="password" placeholder="Password">
+                                <input class="form-control" type="password" name="password" placeholder="Password" minlength="1" maxlength="45" required>
                             </div>
                             <button type="submit" value="submit" class="btn btn-default">Login</button>
-                            <a style="float: right;" class="btn btn-default" href="inputpage.jsp">Login as Guest</a>
+                            <a style="float: right;" class="btn btn-default" href="inputpage.jsp">Fortsæt som gæst</a>
                         </form>
                     </div>
                     <div class="tab2-c tab" id="register">
                         <form  name="register" action="FrontController" method="POST">                                
                             <input type="hidden" name="command" value="register">
                             <div class="form-group">
-                                <label>Username:</label>
-                                <input class="form-control" type="text" name="username" placeholder="Username">
+                                <label>Brugernavn:</label>
+                                <input class="form-control" type="text" name="username" placeholder="Username" minlength="1" maxlength="45" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Email:</label>
-                                <input class="form-control" type="text" name="email" placeholder="Email">
+                                <input class="form-control" type="email" name="email" placeholder="Email" minlength="1" maxlength="45" required>
                             </div>
 
                             <div class="form-group">
-                                <label>Phone:</label>
-                                <input class="form-control" type="text" name="phone" placeholder="Phone">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input class="form-control" type="text" name="password1" placeholder="Password">
+                                <label>Tlf Nr:</label>
+                                <input class="form-control" type="number" name="phone" placeholder="Phone" minlength="1" maxlength="45" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Password</label>
-                                <input class="form-control" type="text" name="password2" placeholder="Retype Password">
+                                <input class="form-control" type="password" name="password1" placeholder="Password" minlength="1" maxlength="45" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" type="password" name="password2" placeholder="Retype Password" minlength="1" maxlength="45" required>
                             </div>
                             <button type="submit" value="submit" class="btn btn-default">Register</button>
                         </form>
                     </div>
                 </div>
             </div>
-            <div id="errorMessage   ">
+
+            <div class="errorMessage">
                 <% String error = (String) request.getAttribute("error");
-                                if (error != null) {%>
+                    if (error != null) {%>
                 <p><strong>Error!!</strong></p>
-                <p><%= error%><% }
-                    %>
-
-
+                <p><%= error%><% }%></p>
             </div>
-
-            <!--<div id="errorMessage" class="alert alert-danger alert-dismissable">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-            </div>->
-
-            <div id="errorMessage" class="alert alert-dismissable"> 
-            </div>
-            
-            -->
 
 
             <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
             <script src="js/loginregisterfader.js" type="text/javascript"></script>
-            <script type="text/javascript">
+            <script>
                 $(document).ready(function () {
-                    if ($("#errorMessage").text().length > 0) {
-                        $('#errorMessage').hide();
-                    }
+                    $('.errorMessage').filter(function () {
+                        return $.trim($(this).text()).length <= 1
+                    }).hide()
                 });
+            </script>
+            <script>
+                $(document).ready(function () { 
+                    setTimeout(function () {
+                        $('.errorMessage').fadeOut('slow');
+                    }, 5000); // <-- time in milliseconds
+                });
+
             </script>
         </div>
     </body>

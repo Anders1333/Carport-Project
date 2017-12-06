@@ -23,21 +23,17 @@ public class CarportBuilder extends Command {
         int height = Integer.parseInt(request.getParameter("height"));
         double degree = Integer.parseInt(request.getParameter("degree"));
         int shedChecked = Integer.parseInt(request.getParameter("toolshed"));
-        Carport carport;
+        Carport carport = new Carport(length, width, height, degree);
 
         if (shedChecked == 1) {
             int shedDepth = Integer.parseInt(request.getParameter("depth"));
-            carport = new Carport(length, width, height, degree, shedDepth);
-        } else {
-            carport = new Carport(length, width, height, degree);
-
+            carport.setShedDepth(shedDepth);
         }
+        request.setAttribute("carport", carport);
 
         if (user != null) {
             DomainFacade.saveOrder(user, carport);
-
         }
-        request.setAttribute("carport", carport);
 
         return "offerpage";
 

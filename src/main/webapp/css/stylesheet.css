@@ -12,13 +12,50 @@ and open the template in the editor.
 /* These classes are the "tabs" on the employeepage that are hidden. Used in empfaderjs.js" */
 .tab1-c , .tab2-c, .tab3-c, .tab4-c{display:none;}
 
+/* Hide the spin arros in the number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+
+
+html, body {
+    height: 100%;
+    margin: 0px;
+}
+
+
+
+
+.errorMessage {
+    width: 400px;
+    background-color: rgba(211,211,211,0.9);
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: 2px solid #2e70db;
+    padding: 10px;
+}
+
+
+.registerTradeMark {
+    line-height: 5px !important;
+    font-size: 13px !important;
+}
+
 * {
     padding: 0;
     margin: 0;
 }
 
 body {
-    
+    background-image: url(../img/bg2.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;   
 }
 
 *:focus {outline: none}
@@ -26,16 +63,15 @@ body {
 .navbar-brand {
     padding: 15px 0px !important;
     text-transform: uppercase;
+    color: #fff !important;
 }
 
 .fogNavbar {
-    
-    background-color: transparent !important;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
 
+    background-color: rgba(40,65,215,0.8) !important;
     position: relative;
     min-height: 50px;
+    margin-bottom: 20px;
 }
 
 .active-blue {
@@ -43,6 +79,18 @@ body {
     color: #fff !important;
 }
 
+.active-white > a {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+
+.navbar-default .navbar-nav>li>a {
+    color: blue;
+}
+
+
+/*
 #allUsersDiv {
     width: fit-content;
 }
@@ -75,6 +123,44 @@ body {
     padding: 0;
     margin: 0;
     text-align: left;
+}
+*/
+
+
+.userSelectorBox {
+
+}
+
+.userSelectorBoxButtons > ul {
+    list-style: none;
+}
+
+
+
+.userSelectorBoxButtons > ul > li {
+    background-color: rgba(40,65,215,0.8) !important;
+    transition: background 0.2s ease;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold !important;
+    width: 25%;
+
+}
+.userSelectorBoxButtons  li:hover {
+    background-color: rgba(40,65,215,1) !important;
+    transition: background 0.2s ease;
+
+}
+
+
+.userSelectorBoxButtons button {
+    background-color: transparent;
+    width: -webkit-fill-available;
+    word-wrap: break-word;
+    text-align: left;
+    color: white;
+    border: none;
+    padding: 5px;   
 }
 
 h4 {
@@ -117,18 +203,11 @@ h5 {
 
 .loginRegisterBox {
     width: 400px;
-    background-color: lightgray;
+    background-color: rgba(211,211,211,0.9);
     display: block;
     margin: 0 auto;
     margin-bottom: 10px;
 }
-
-#errorMessage {
-    width: 400px;
-    display: block;
-    margin: 0 auto;
-}
-
 
 
 
@@ -145,7 +224,7 @@ h5 {
     outline: none;
 }
 .loginRegisterButton:hover {
-    background-color: #255fbc !important;
+
     transition: background-color 0.2s ease;
     color: lightgray !important;
 }
@@ -160,7 +239,50 @@ h5 {
 }
 
 .tabNavButton {
-    cursor: pointer;
+    color: white !important;
+    transition: color 0.2s ease;
+    cursor: pointer !important;
+    text-transform: uppercase;
+}
+
+.tabNavButton:hover {
+    color: black !important;
+    transition: color 0.2s ease;
+}
+
+.contactDiv {
+    border: 2px solid #2e70db;
+    background-color: rgba(211,211,211,0.9);
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.contentDiv {
+    border: 2px solid #2e70db;
+    background-color: rgba(211,211,211,0.9);
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 20px;  
+    height: 100%;
+}
+
+.contentDiv > h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.h100 {
+    height: 100% !important;
+}
+
+
+.contactDiv h4 {
+    margin-top: 0px !important;
+}
+
+.contactDiv hr {
+    border-color: gray; 
 }
 
 

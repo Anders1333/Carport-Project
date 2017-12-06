@@ -90,7 +90,7 @@ public class User {
 
     @Override
     public String toString() {
-        return  "Username: " + username + "    Phone: " + phone + "    Email: " + email;
+        return  "Username: " + username + "<br>Phone: " + phone + "<br>Email: " + email;
     }
     
 
