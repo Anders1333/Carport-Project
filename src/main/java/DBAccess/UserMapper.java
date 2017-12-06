@@ -122,7 +122,7 @@ public class UserMapper {
                     + "SET User_hasGenerated = 'Y'"
                     + "WHERE User_name = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setString(1, "Y");
+            ps.setString(1, user.getUsername());
 
         } catch (ClassNotFoundException | SQLException ex) {
             throw new CarportException("Something went wrong, please try again later.");
