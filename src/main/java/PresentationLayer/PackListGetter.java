@@ -25,7 +25,7 @@ public class PackListGetter extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws CarportException {
 
         int orderId = Integer.parseInt(request.getParameter("orderId"));
-//        
+        request.setAttribute("currentPath", "customerorderspage.jsp");
 
         Order order = DomainFacade.getSingleOrder(orderId);
         Carport Carport = new Carport(order.getLength(), order.getWidth(), order.getHeight(), order.getRoofIncline());

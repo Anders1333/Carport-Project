@@ -11,12 +11,10 @@ public class CarportCalculator {
 
         if (carport.getDegree() <= 0) {
             return carport.getLength() * carport.getWidth();
-        } if(carport.getDegree()> 89) {
-            throw new CarportException("This roof is not buildable.");
+
         } else {
             double radians = Math.toRadians(carport.getDegree());
             double hypotenuse = (carport.getWidth() / 2) / Math.cos(radians);
-            //   double roofWidthRound = Math.floor(hypotenuse);
             double hypotenuseRound = Math.ceil((hypotenuse / 10) * 10);
             return hypotenuseRound;
         }
