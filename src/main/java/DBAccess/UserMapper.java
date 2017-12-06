@@ -123,6 +123,7 @@ public class UserMapper {
                     + "WHERE User_name = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, user.getUsername());
+            ps.execute();
 
         } catch (ClassNotFoundException | SQLException ex) {
             throw new CarportException("Something went wrong, please try again later.");
