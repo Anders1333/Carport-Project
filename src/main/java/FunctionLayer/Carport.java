@@ -5,9 +5,6 @@
  */
 package FunctionLayer;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author DD
@@ -20,16 +17,11 @@ public class Carport {
     private double degree;
     private int shedDepth;
 
-    // construter for a Carport without a shed
-    public Carport(int Length, int width, int height, double degree) {
-        this.length = Length;
-        this.width = width;
-        this.height = height;
-        this.degree = degree;
+    public Carport(int length, int width, int height, double degree) {
+        this(length, width, height, degree, 0);
 
     }
 
-    //  construter for a Carport with a shed
     public Carport(int length, int width, int height, double degree, int shedDepth) {
         this.length = length;
         this.width = width;
@@ -37,6 +29,14 @@ public class Carport {
         this.degree = degree;
         this.shedDepth = shedDepth;
 
+    }
+
+    public void setShedDepth(int shedDepth) throws CarportException {
+        if (degree > 90) {
+            throw new CarportException("The incline is too steep");
+        } else {
+            this.shedDepth = shedDepth;
+        }
     }
 
     public int getShedDepth() {
@@ -59,5 +59,4 @@ public class Carport {
         return degree;
     }
 
-  
 }

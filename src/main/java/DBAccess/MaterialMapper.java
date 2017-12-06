@@ -87,7 +87,7 @@ public class MaterialMapper {
             ps.setInt(8, carport.getShedDepth());
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new CarportException("Kunne ikke placere din order");
+            throw new CarportException("Kunne ikke placere sdin order");
         }
     
     

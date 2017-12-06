@@ -14,29 +14,52 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <% Carport carport = (Carport) request.getAttribute("carport");%>
-      
-       
-        
-        
+
+
+
     </head>
     <body>
         <h1>The total price is:</h1>
+
+        
+
+        
+        <form  name="placeOrder" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="placeOrder">
+            <input type="text" name="street" placeholder="Vejnavn"><br>
+            <input type="text" name="streetNr" placeholder="VejNr"><br>
+            <input type="text" name="floor" placeholder="Etage"><br>
+            <input type="text" name="city" placeholder="By"><br>
+            <input type="text" name="zip" placeholder="PostNr"><br>
+            <input type="text" name="country" placeholder="Land"><br>
+            <input type="submit" value="Bestil">
+        </form>
         
         
-        Ønsker du at gemme dette tilbud?
+        
+        
+        
+        
+        
+        <form name="gemtilbud" action="FrontController">
+
+
+        </form>
+
+
+
         <form name="gemtilbud" action="FrontController"></form>
-        
-        
-        
+
+
+
         <br>
-        
-        
-        
-        
+
+
+
+
         HERE GOES YOUR PRICE
-        
-        
-        
+
+
         <br>
         HERE GOES YOUR DRAWING
         <br>
@@ -44,18 +67,16 @@
         CARPORT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         <br>
         <%=carport.getShedDepth()%>
-        
 
-        
+
+
         <br>
-       <!-- Carport drawing html (TOPDOWN)-->  
-   
-      <svg width="1000" height="1000" viewBox="0 0 1000 1000">
-      <%= CarportDrawer.createDrawing(carport)%>
-   
-      </svg>
+
+        <svg width="1000" height="1000" viewBox="0 0 1000 1000">
+        <%= CarportDrawer.createDrawing(carport)%>
+
+        </svg>
 
 
-   
     </body>
 </html>
