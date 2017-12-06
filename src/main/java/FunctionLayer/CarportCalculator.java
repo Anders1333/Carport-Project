@@ -10,13 +10,52 @@ public class CarportCalculator {
    
    
 //----------------- ROOF CALCULATIONS ------------------------------//
+    
+    public static int getRoofTiles(Carport carport) throws CarportException{
+        double areaToCoverOneSide = getInclineLength(carport)*carport.getLength();
+        double fullArea = areaToCoverOneSide*2;
+        double numberOfTiles = Math.ceil(fullArea/900);
+        
+        return (int) numberOfTiles;
+        
+    }
+    
+    
+    public static int getRoofRafterAmount(Carport carport) throws CarportException{
+        double lengthToCover = getInclineLength(carport)*2;
+        double boardsNeeded = Math.ceil(lengthToCover/30);
+        return (int) boardsNeeded;
+    }
+    
+    
+    public static int getGableBoardAmount (Carport carport) throws CarportException{
+        double baseLine = carport.getWidth();
+        double halfHeight = (getRoofHeight(carport)/2);
+        double areaToCover = halfHeight*baseLine;
+        double oneBoardCover = 10*200;
+        double boardAmountBottom = Math.ceil(areaToCover/oneBoardCover);
+        double boardAmountTotal = Math.ceil(boardAmountBottom*1.5);
+        return (int) boardAmountTotal;
+    }
+    
+    public static double getRoofHeight (Carport carport) throws CarportException{
+        if(carport.getDegree()>=90){
+            throw new CarportException("Dette tag kan ikke bygges");
+        }else{
+        
+        double radians = Math.toRadians(carport.getDegree());
+        double height = Math.sin(radians)*getInclineLength(carport);
+        return height;
+    }
+      
+    }
 
     public static double getInclineLength(Carport carport) throws CarportException {
 
         if (carport.getDegree()<= 0) {
             return carport.getLength() * carport.getWidth();
         } else if (carport.getDegree() >= 90) {
-            throw new CarportException("This roof is not buildable.");
+            throw new CarportException("Dette tag kan ikke bygges");
         } else {
             double radians = Math.toRadians(carport.getDegree());
             double hypotenuse = (carport.getWidth() / 2) / Math.cos(radians);

@@ -6,6 +6,7 @@
 package PresentationLayer;
 
 import FunctionLayer.Carport;
+import FunctionLayer.CarportCalculator;
 import FunctionLayer.CarportException;
 import FunctionLayer.PacklistMaker;
 import FunctionLayer.PacklistObject;
@@ -21,33 +22,19 @@ public class TestMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws CarportException {
-        Carport carport3 = new Carport(780,600,300,30.0,0);
-        Carport carport1 = new Carport(780,600,300,30.0,200);
-        Carport carport = new Carport(780,600,300,30.0,400);
-       int length = carport.getLength();
-    int width = carport.getWidth();
-    int height = carport.getHeight();
-    double roofIncline = carport.getDegree();
-    int shedDepth = carport.getShedDepth();
+        Carport carport1 = new Carport(780,400,300,45.0,0);
+        Carport carport2 = new Carport(780,400,300,30.0,200);
+        Carport carport3 = new Carport(780,400,300,20.0,400);
+
     
      ArrayList<PacklistObject> list = new ArrayList();
      
-      
-      PacklistObject po = PacklistMaker.verticalPoles(carport);
-      PacklistObject po2 = PacklistMaker.verticalPoles(carport1);
-      PacklistObject po3 = PacklistMaker.verticalPoles(carport3);
+  
      
      
-     list.add(po);
-     list.add(po2);
-      list.add(po3);
      
+       
      
-        System.out.println(carport.getWidth());
-        System.out.println(list.get(0).toString());
-        System.out.println(list.get(1).toString());
-        System.out.println(list.get(2).toString());
-    
     
     
 //    

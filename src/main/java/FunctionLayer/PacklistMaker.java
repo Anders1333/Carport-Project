@@ -21,24 +21,12 @@ public class PacklistMaker {
         // ---- Basic skeleton ---- //
         packList.add(verticalPoles(carport));
         packList.add(rimsLong(carport));
-        packList.add(baseRafters(carport));
+        
         packList.add(sternBoardsUpperSides(carport));
         packList.add(sternBoardsLowerSides(carport));
         packList.add(waterBoardsSides(carport));
         
-        // --- Roof dependent --- //
-        packList.add(sternBoardsLowerShort(carport));
-        packList.add(sternBoardsUpperShort(carport));
-        packList.add(waterBoardsShort(carport));
-        
-        
-        //--- Roofplates on flat roof --- //
-        if(carport.getDegree()==0){
-           packList.add(roofPlates(carport));
-        }
-       
-        
-        // ---- Shed ----//
+       // ---- Shed ----//
         if(carport.getShedDepth()>0){
           packList.add(shedBoards(carport));
           packList.add(shedSkeletonPostsLong(carport));
@@ -48,19 +36,115 @@ public class PacklistMaker {
         
         // ---- Inclined Roof ----//
         if(carport.getDegree()>0){
-          // packList.add(sternBoards(carport));
-          // packList.add(windBoards(carport));
-          // packList.add(roofBattens(carprot));
-          // packList.add(waterBoards(carport));
-          // packList.add(roofTiles(carport));
+          
+          packList.add(windSheets(carport));
+          packList.add(waterBoardsRoof(carport));
+          packList.add(gableBoards(carport));
+          packList.add(baseRafters(carport));
+          packList.add(roofRafters(carport));
+          packList.add(topRafters(carport));
+          packList.add(sternBoardsLowerShort(carport));
+          
+        // ---- Inclined Roof Tiles Material ---- //
+         packList.add(inclinedRoofTiles(carport));
+         packList.add(topTiles(carport));
+         packList.add(topRaftLatch(carport));
         
+         
+        
+        }
+        
+        if(carport.getDegree()==0){ 
+        // --- Roof is Flat --- //
+        packList.add(roofPlates(carport));
+        packList.add(baseRafters(carport));
+        packList.add(sternBoardsLowerShort(carport));
+        packList.add(sternBoardsUpperShort(carport));
+        packList.add(waterBoardsShort(carport));
         }
         
        return packList; 
     }
+    
 
 //---------------------- Methods ------------------------//
+    public static PacklistObject topRaftLatch (Carport carport) throws CarportException{
+        int id = 39;
+        double amount = Math.ceil(carport.getLength()/10);
+        double length = amount;
+        PacklistObject po = MaterialMapper.getMaterial(id, (int) amount, length);
+        return po;
+    }
+    
+   public static PacklistObject topTiles (Carport carport) throws CarportException{
+       int id = 38;
+       double amount = Math.ceil(carport.getLength()/35);
+       double length = amount;
+       PacklistObject po = MaterialMapper.getMaterial(id, (int) amount, length);
+       return po;
+   } 
+    
+   public static PacklistObject inclinedRoofTiles (Carport carport) throws CarportException{
+       CarportCalculator cc = new CarportCalculator();
+       int id = 37;
+       int amount = cc.getRoofTiles(carport);
+       int length = amount;
+       PacklistObject po = MaterialMapper.getMaterial(id, amount, length);
+       return po;
+       
+   }
 
+   public static PacklistObject topRafters (Carport carport) throws CarportException{
+       int id = 26;
+       int amount = 1;
+       double length = carport.getLength();
+       PacklistObject po = MaterialMapper.getMaterial(id, amount, length);
+       return po;
+   }
+    
+   public static PacklistObject roofRafters (Carport carport) throws CarportException{
+       CarportCalculator cc = new CarportCalculator();
+       int id = 26;
+       int numberOfBoards = cc.getRoofRafterAmount(carport);
+       double lengthOfBoards = carport.getLength();
+       PacklistObject po = MaterialMapper.getMaterial(id, numberOfBoards, lengthOfBoards);
+       return po;
+   }
+    
+    public static PacklistObject gableBoards (Carport carport) throws CarportException{
+        CarportCalculator cc = new CarportCalculator();
+        int id = 12;
+        int numberOfBoards = cc.getGableBoardAmount(carport);
+        double lengthOfBoards = 200;
+        
+        PacklistObject po = MaterialMapper.getMaterial(id, numberOfBoards, lengthOfBoards);
+       
+        return po;
+    }
+    
+    public static PacklistObject waterBoardsRoof(Carport carport) throws CarportException{
+        CarportCalculator cc = new CarportCalculator();
+        int id = 12;
+        int amount = 4;
+        double inclineLength = cc.getInclineLength(carport);
+        double boardLength = inclineLength + 30;
+        
+        PacklistObject po = MaterialMapper.getMaterial(id, amount, boardLength);
+        return po;
+        
+    }
+    
+    public static PacklistObject windSheets(Carport carport) throws CarportException{
+        CarportCalculator cc = new CarportCalculator();
+        int id = 17;
+        int amount = 4;
+        double inclineLength = cc.getInclineLength(carport);
+        double boardLength = inclineLength + 30;
+        
+        PacklistObject po = MaterialMapper.getMaterial(id, amount, boardLength);
+        return po;
+        
+    }
     
     public static PacklistObject waterBoardsShort(Carport carport) throws CarportException{
         CarportCalculator cc = new CarportCalculator();
@@ -170,11 +254,20 @@ public class PacklistMaker {
     public static PacklistObject sternBoardsLowerShort(Carport carport) throws CarportException {
         CarportCalculator cc = new CarportCalculator();
         int id = 20;
-        int sternBoardsAmount = 2;
-        int sternBoardsLength = carport.getWidth();
+        if(carport.getDegree()==0){
+             int sternBoardsAmount = 2;
+             int sternBoardsLength = carport.getWidth();
         
-        PacklistObject po = MaterialMapper.getMaterial(id, sternBoardsAmount, sternBoardsLength);
-        return po;
+             PacklistObject po = MaterialMapper.getMaterial(id, sternBoardsAmount, sternBoardsLength);
+             return po;
+        }else{
+             double sternBoardsAmount = Math.ceil(cc.getInclineLength(carport)/20);
+             double sternBoardsLength = Math.ceil(20*sternBoardsAmount);
+             
+             PacklistObject po = MaterialMapper.getMaterial(id, (int) sternBoardsAmount, sternBoardsLength);
+             return po;
+        }
+    
     }
     
     public static PacklistObject baseRafters(Carport carport) throws CarportException {
@@ -182,10 +275,16 @@ public class PacklistMaker {
         CarportCalculator cc = new CarportCalculator();
         int id = 35;
         int rafterAmount = cc.getRafterAmount(carport);
+        if(carport.getDegree()==0){
         int rafterLength = carport.getWidth();
-                
-        PacklistObject po = MaterialMapper.getMaterial(id, rafterAmount, rafterLength);
-     return po;    
+            PacklistObject po = MaterialMapper.getMaterial(id, rafterAmount, rafterLength);
+            return po; 
+        }else{
+         double rafterLength = Math.ceil(cc.getInclineLength(carport));
+             PacklistObject po = MaterialMapper.getMaterial(id, rafterAmount, rafterLength);
+             return po; 
+        }  
+       
     }
     
     
