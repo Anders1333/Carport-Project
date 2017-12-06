@@ -1,3 +1,29 @@
+<<<<<<< HEAD
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\DBAccess\MaterialMapper.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\PresentationLayer\UnknownCommand.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\FunctionLayer\CarportException.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\PresentationLayer\Login.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\PresentationLayer\FrontController.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\DBAccess\UserMapper.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\PresentationLayer\PackListGetter.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\FunctionLayer\CarportCalculator.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\FunctionLayer\PacklistMaker.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\FunctionLayer\CarportDrawer.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\FunctionLayer\ShedCalculator.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\PresentationLayer\CarportBuilder.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\PresentationLayer\Command.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\FunctionLayer\PriceCalculation.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\PresentationLayer\UserGetter.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\FunctionLayer\Order.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\PresentationLayer\TestMain.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\FunctionLayer\Carport.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\PresentationLayer\Register.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\FunctionLayer\User.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\DBAccess\Connector.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\FunctionLayer\PacklistObject.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\PresentationLayer\OrderGetter.java
+C:\Users\jonas\Documents\NetBeansProjects\Carport-Project-master\Carport-Project\src\main\java\FunctionLayer\DomainFacade.java
+=======
 C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\PresentationLayer\UnknownCommand.java
 C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\FunctionLayer\PacklistMaker.java
 C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\FunctionLayer\CarportDrawer.java
@@ -23,3 +49,4 @@ C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\Presentatio
 C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\FunctionLayer\CarportException.java
 C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\FunctionLayer\Carport.java
 C:\Users\DD\Documents\NetBeansProjects\Carport-Project\src\main\java\PresentationLayer\Register.java
+>>>>>>> 478cc2abd48af544303cd12bf3ad28bc04d5d295
