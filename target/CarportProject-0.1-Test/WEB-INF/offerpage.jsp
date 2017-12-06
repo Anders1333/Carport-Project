@@ -21,9 +21,26 @@
     <body>
         <h1>The total price is:</h1>
 
+        
 
-        Ønsker du at gemme dette tilbud?
-
+        
+        <form  name="placeOrder" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="placeOrder">
+            <input type="text" name="street" placeholder="Vejnavn"><br>
+            <input type="text" name="streetNr" placeholder="VejNr"><br>
+            <input type="text" name="floor" placeholder="Etage"><br>
+            <input type="text" name="city" placeholder="By"><br>
+            <input type="text" name="zip" placeholder="PostNr"><br>
+            <input type="text" name="country" placeholder="Land"><br>
+            <input type="submit" value="Bestil">
+        </form>
+        
+        
+        
+        
+        
+        
+        
         <form name="gemtilbud" action="FrontController">
 
 

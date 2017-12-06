@@ -51,4 +51,11 @@ public class DomainFacade {
     
     }
 
+    public static void saveAddress(User user, String street, String streetNr, String floor, String city, String zip, String country) throws CarportException {
+        UserMapper.saveAddress(user, street, streetNr, floor, city, zip, country);
+    
+    
+    
+    }
+
 }
