@@ -51,7 +51,7 @@
        <!-- Carport drawing html (TOPDOWN)-->  
    
       <svg width="1000" height="1000" viewBox="0 0 1000 1000">
-      <%= CarportDrawer.createPoles(carport)%>
+      <%= CarportDrawer.createDrawing(carport)%>
    
       </svg>
 
