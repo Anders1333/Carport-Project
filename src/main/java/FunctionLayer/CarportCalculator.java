@@ -1,4 +1,3 @@
-
 package FunctionLayer;
 
 /**
@@ -7,28 +6,23 @@ package FunctionLayer;
  */
 public class CarportCalculator {
 
-   
-   
 //----------------- ROOF CALCULATIONS ------------------------------//
-
     public static double getInclineLength(Carport carport) throws CarportException {
 
-        if (carport.getDegree()<= 0) {
+        if (carport.getDegree() <= 0) {
             return carport.getLength() * carport.getWidth();
-        } else if (carport.getDegree() >= 90) {
-            throw new CarportException("This roof is not buildable.");
+
         } else {
             double radians = Math.toRadians(carport.getDegree());
             double hypotenuse = (carport.getWidth() / 2) / Math.cos(radians);
-            //   double roofWidthRound = Math.floor(hypotenuse);
-           double hypotenuseRound = Math.ceil((hypotenuse / 10) * 10);
+            double hypotenuseRound = Math.ceil((hypotenuse / 10) * 10);
             return hypotenuseRound;
         }
     }
 
     public static int getTopBattens(Carport carport) throws CarportException {
         int topBattens = carport.getLength() / 420;
-        if (carport.getLength()% 420 > 0) {
+        if (carport.getLength() % 420 > 0) {
             topBattens += 1;
         }
         return topBattens;
@@ -41,8 +35,8 @@ public class CarportCalculator {
         if ((inclineSheetLength * 4) % 480 > 0) {
             numberOfInclineSheet += 1;
         }
-        double numberOfInclineSheetRound =  Math.ceil((numberOfInclineSheet /10)*10);
-        return  numberOfInclineSheetRound;
+        double numberOfInclineSheetRound = Math.ceil((numberOfInclineSheet / 10) * 10);
+        return numberOfInclineSheetRound;
     }
 
     public static double getRoofMeterial(Carport carport) throws CarportException {
@@ -62,24 +56,22 @@ public class CarportCalculator {
         return meterial;
 
     }
- 
+
     //------------------- BUILDING CALCULATIONS --------------------//
-    
-    
-    public static int getRafterAmount(Carport carport){
-        int numberOfRafters = carport.getLength() /55;
-        if (carport.getLength() % 55 > 30){
+    public static int getRafterAmount(Carport carport) {
+        int numberOfRafters = carport.getLength() / 55;
+        if (carport.getLength() % 55 > 30) {
             numberOfRafters += 1;
         }
         return numberOfRafters;
     }
-    
+
     public static int getSternPlanksCarport(Carport carport) throws CarportException {
         int numberOfSternPlanksCarport = carport.getLength() / 600;
         if (carport.getLength() % 600 > 0) {
             numberOfSternPlanksCarport += 1;
         }
-        return numberOfSternPlanksCarport*2;
+        return numberOfSternPlanksCarport * 2;
     }
 
     public static int getVerticalPolesAmount(Carport carport) throws CarportException {
@@ -87,9 +79,9 @@ public class CarportCalculator {
         numberOfPoles += carport.getLength() / 200;
         return numberOfPoles * 2;
     }
-    
-    public static int getVerticalPolesLength(Carport carport) throws CarportException{
-        return carport.getHeight()+70;
+
+    public static int getVerticalPolesLength(Carport carport) throws CarportException {
+        return carport.getHeight() + 70;
     }
 
     public static int getHorizontalRimsLength(Carport carport) throws CarportException {
@@ -99,7 +91,5 @@ public class CarportCalculator {
         }
         return rimAmount;
     }
-
-
 
 }

@@ -19,6 +19,7 @@ abstract class Command {
         commands.put("getOrders" , new OrderGetter());
         commands.put("getUsers" , new UserGetter());
         commands.put("packList" , new PackListGetter());
+        commands.put("placeOrder" , new placeOrder());
     }
 
     
