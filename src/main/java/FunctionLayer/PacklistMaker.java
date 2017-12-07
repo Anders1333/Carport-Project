@@ -50,8 +50,6 @@ public class PacklistMaker {
          packList.add(topTiles(carport));
          packList.add(topRaftLatch(carport));
         
-         
-        
         }
         
         if(carport.getDegree()==0){ 
