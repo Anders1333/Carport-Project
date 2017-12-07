@@ -3,7 +3,9 @@ package PresentationLayer;
 import FunctionLayer.Carport;
 import FunctionLayer.CarportException;
 import FunctionLayer.DomainFacade;
+import FunctionLayer.PacklistObject;
 import FunctionLayer.User;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -30,8 +32,11 @@ public class CarportBuilder extends Command {
             int shedDepth = Integer.parseInt(request.getParameter("depth"));
             carport.setShedDepth(shedDepth);
         }
+        
+        ArrayList<PacklistObject> PLO = DomainFacade.makePackList(carport);
+        request.setAttribute("price", DomainFacade.getTotalPrice(PLO));
         request.setAttribute("carport", carport);
-
+        
         if (user != null) {
             DomainFacade.saveOrder(user, carport);
         }

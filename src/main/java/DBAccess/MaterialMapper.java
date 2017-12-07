@@ -106,7 +106,7 @@ public class MaterialMapper {
                 String name = rs.getString("Material_name");
                 String unit = rs.getString("Material_unit");
                 String description = rs.getString("Material_description");
-                double price = rs.getDouble("Material_price")*amount;
+                double price = Math.ceil(rs.getDouble("Material_price")*amount*(length/100)) ;
                 
                 PacklistObject po = new PacklistObject(name,length,amount,unit,description,price);
                 

@@ -38,8 +38,8 @@ public class DomainFacade {
         return order;
     }
 
-    public static double getTotalPrice(Carport carport) throws CarportException {
-        return 100;
+    public static double getTotalPrice(ArrayList<PacklistObject> packlist) throws CarportException {
+        return PriceCalculation.CalculatePrice(packlist);
     
     }
 
@@ -60,6 +60,10 @@ public class DomainFacade {
     public static String checkAddress(User user) throws CarportException {
        return UserMapper.checkAddress(user);
     
+    }
+
+    public static ArrayList<PacklistObject> makePackList(Carport carport) throws CarportException {
+    return PacklistMaker.makePacklist(carport);
     }
 
 }
