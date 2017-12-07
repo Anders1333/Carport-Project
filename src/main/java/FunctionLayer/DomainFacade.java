@@ -62,4 +62,8 @@ public class DomainFacade {
     
     }
 
+    public static ArrayList<PacklistObject> makePackList(Carport carport) throws CarportException {
+    return PacklistMaker.makePacklist(carport);
+    }
+
 }

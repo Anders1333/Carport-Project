@@ -39,7 +39,8 @@ public class FrontController extends HttpServlet {
         } catch (CarportException ex) {
             //HttpSession session = request.getSession();
             request.setAttribute("error", ex.getMessage());
-            request.getRequestDispatcher((String)request.getAttribute("currentPath")).forward(request, response);
+            //request.getRequestDispatcher((String)request.getAttribute("currentPath")).forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 
