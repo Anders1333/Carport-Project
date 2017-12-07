@@ -72,9 +72,11 @@
 
         <br>
 
-        <svg width="1000" height="1000" viewBox="0 0 1000 1000">
-        <%= CarportDrawer.createDrawing(carport)%>
-
+    <svg width= "<%=carport.getLength()+20%>" height="<%=carport.getWidth()+20%>" viewBox="0 0 <%=carport.getLength()+20%> <%=carport.getWidth()+20%>">
+        <%= CarportDrawer.createDrawing1(carport)%>
+        </svg>
+    <svg width= "<%=carport.getLength()+20%>" height="<%=carport.getWidth()+20%>" viewBox="0 0 <%=carport.getLength()+20%> <%=carport.getWidth()+20%>">
+        <%= CarportDrawer.createDrawing2(carport)%>
         </svg>
 
 

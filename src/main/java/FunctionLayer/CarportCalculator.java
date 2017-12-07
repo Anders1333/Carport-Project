@@ -162,12 +162,21 @@ public class CarportCalculator {
     }
     
     public static int getRafterAmount(Carport carport){
+        if(carport.getDegree()>0){
+            int numberOfRafters = carport.getLength()/89;
+            if(carport.getLength() % 89 > 40){
+                numberOfRafters += 1;
+            }
+           return numberOfRafters;  
+        }
+        
         int numberOfRafters = carport.getLength() /55;
         if (carport.getLength() % 55 > 30){
             numberOfRafters += 1;
         }
         return numberOfRafters;
     }
+    
 
     public static int getSternPlanksCarport(Carport carport) throws CarportException {
         int numberOfSternPlanksCarport = carport.getLength() / 600;

@@ -68,6 +68,19 @@ public class PacklistMaker {
     
 
 //---------------------- Methods ------------------------//
+    
+    public static PacklistObject ekstraRaftersForRoof (Carport carport) throws CarportException{
+        CarportCalculator cc = new CarportCalculator();
+        int id = 35;
+        double amount = cc.getRafterAmount(carport);
+        double length = Math.ceil(cc.getInclineLength(carport))+10;
+        PacklistObject po = MaterialMapper.getMaterial(id, (int) amount, length);
+        return po;
+    }
+    
+    
+    
+    
     public static PacklistObject topRaftLatch (Carport carport) throws CarportException{
         int id = 39;
         double amount = Math.ceil(carport.getLength()/10);
@@ -275,17 +288,14 @@ public class PacklistMaker {
         CarportCalculator cc = new CarportCalculator();
         int id = 35;
         int rafterAmount = cc.getRafterAmount(carport);
-        if(carport.getDegree()==0){
+      
         int rafterLength = carport.getWidth();
             PacklistObject po = MaterialMapper.getMaterial(id, rafterAmount, rafterLength);
-            return po; 
-        }else{
-         double rafterLength = Math.ceil(cc.getInclineLength(carport));
-             PacklistObject po = MaterialMapper.getMaterial(id, rafterAmount, rafterLength);
-             return po; 
-        }  
+            return po;
+        }
+           
        
-    }
+    
     
     
     public static PacklistObject rimsLong(Carport carport) throws CarportException {
