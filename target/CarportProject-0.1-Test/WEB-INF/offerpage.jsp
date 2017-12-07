@@ -41,24 +41,15 @@
         
         
         
-        <form name="gemtilbud" action="FrontController">
+        
 
 
-        </form>
-
-
-
-        <form name="gemtilbud" action="FrontController"></form>
-
-
-
-        <br>
-
+        
 
 
 
         HERE GOES YOUR PRICE
-
+        <%= request.getAttribute("price") %>
 
         <br>
         HERE GOES YOUR DRAWING
