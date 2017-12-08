@@ -317,9 +317,9 @@ public class PacklistMaker {
         }
         verticalPolesAmount = verticalPolesAmount*2;
         
-        double verticalPolesLengthInMeters = cc.getVerticalPolesLength(carport) / 100;
+        double verticalPolesLength = cc.getVerticalPolesLength(carport);
 
-        PacklistObject po = MaterialMapper.getMaterial(id, verticalPolesAmount, verticalPolesLengthInMeters);
+        PacklistObject po = MaterialMapper.getMaterial(id, verticalPolesAmount, verticalPolesLength);
         return po;
     }
 
