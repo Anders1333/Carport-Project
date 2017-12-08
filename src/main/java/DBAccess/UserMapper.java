@@ -90,14 +90,13 @@ public class UserMapper {
     public static ArrayList<Order> getGeneratedOrders(String username) throws CarportException {
         try {
             Connection con = Connector.connection();
-            String SQL = "select * FROM Orders left join Users on Users.User_name = Orders.User_name"
-                    + "WHERE Users.User_hasGenerated = ? AND Users.User_name = ?;";
+            String SQL = "select * FROM Orders "
+                    + "WHERE User_name = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setString(1, "Y");
-            ps.setString(2, username);
+            ps.setString(1, username);
 
-            ResultSet rs = ps.executeQuery();
             ArrayList<Order> orderList = new ArrayList<>();
+            ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Order order = new Order(
