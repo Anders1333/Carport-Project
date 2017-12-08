@@ -107,6 +107,9 @@ public class CarportDrawer {
         
         HTML.append(rims(width,length));
         
+        //--- Gables --- //
+        HTML.append(gables(width,length));
+       
         //--- Rafters ---//
         
         HTML.append(rafters(width,length));
@@ -129,13 +132,23 @@ public class CarportDrawer {
     
     //---- Premade rects ---- //
     
+   
+    
+    public static String gables (int width,int length){
+        String toAdd = "<rect x=\"25\" y=\"0\" stroke-width=\"1px\" width=\"3\" height=\""+(width)+"\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
+        + "<line style =\"stroke: black; stroke-width: 2px;\" stroke-dasharray=\"5,5\" x1=\"26\" y1=\"0\" x2=\"26\" y2=\""+(width)+"\"></line>\n"
+        + "<rect x=\""+(length-25)+"\" y=\"0\" stroke-width=\"1px\" width=\"3\" height=\""+(width)+"\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
+        + "<line style =\"stroke: black; stroke-width: 2px;\" stroke-dasharray=\"5,5\" x1=\""+(length-24)+"\" y1=\"0\" x2=\""+(length-24)+"\" y2=\""+(width)+"\"></line>\n";
+        return toAdd;    
+    }
+    
     public static String roofRafters2 (int width, int length){
         String toAdd = "";
         double areaToCover = (width/2) - 20;
         double numberOfRafters = Math.ceil(areaToCover/35);
         
-        for (int i = ((width/2)+20); i > 35 ; i-=35) {
-            toAdd += "<rect x=\"0\" y=\""+(i)+"\" stroke-width=\"1px\" width=\""+(length)+"\" height=\"3\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
+        for (int i = 38; i < numberOfRafters*35 ; i+=35) {
+            toAdd += "<rect x=\"0\" y=\""+(width-i)+"\" stroke-width=\"1px\" width=\""+(length)+"\" height=\"3\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
             
         }
         return toAdd;
@@ -196,8 +209,8 @@ public class CarportDrawer {
     
     public static String rims(int width, int length){
    String toAdd= 
-                  "   <rect x=\"5\" y=\"25\" stroke-width=\"2px\" width=\"" + (length - 5) + "\" height=\"5\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
-                + "   <rect x=\"5\" y=\"" + (width - 30) + "\" stroke-width=\"2px\" width=\"" + (length - 5) + "\" height=\"5\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
+                  "   <rect x=\"25\" y=\"25\" stroke-width=\"2px\" width=\"" + (length - 45) + "\" height=\"5\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
+                + "   <rect x=\"25\" y=\"" + (width - 30) + "\" stroke-width=\"2px\" width=\"" + (length - 45) + "\" height=\"5\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
                 + "   <rect x=\"5\" y=\"0\" stroke-width =\"1px\" width=\"" + (length - 5) + "\" height=\"2.5\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
                 + "   <rect x=\"5\" y=\"" + (width - 2.5) + "\" stroke-width=\"1px\" width=\"" + (length - 5) + "\" height=\"2.5\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
                 + "   \n"
