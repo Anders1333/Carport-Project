@@ -90,16 +90,21 @@ public class UserMapper {
     public static ArrayList<Order> getGeneratedOrders(String username) throws CarportException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM Orders WHERE User_name = ? and status = ?";
+            String SQL = "select * FROM Orders "
+                    + "WHERE User_name = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, username);
-            ps.setString(2, "generated");
 
-            ResultSet rs = ps.executeQuery();
             ArrayList<Order> orderList = new ArrayList<>();
+            ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Order order = new Order(rs.getInt("Order_id"), rs.getString("User_name"), rs.getDouble("Price"), rs.getString("Date"), rs.getString("Status"));
+                Order order = new Order(
+                        rs.getInt("Order_id"),
+                        rs.getString("User_name"),
+                        rs.getDouble("Price"),
+                        rs.getString("Date")
+                );
                 orderList.add(order);
             }
             return orderList;
@@ -114,13 +119,58 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE Users"
-                    + "SET User_hasGenerated = 'Y'"
-                    + "WHERE User_name = ?;";
+                    + " SET User_hasGenerated = 'Y'"
+                    + " WHERE User_name = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setString(1, "Y");
+            ps.setString(1, user.getUsername());
+            ps.execute();
+
         } catch (ClassNotFoundException | SQLException ex) {
             throw new CarportException("Something went wrong, please try again later.");
         }
+    }
+
+    public static void saveAddress(User user, String street, String streetNr, String floor, String city, String zip, String country) throws CarportException {
+        try {
+
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO Addresses"
+                    + "(User_name, Street, Streetnumber, Floor, City, Zip, Country)"
+                    + "values (?,?,?,?,?,?,?);";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, user.getUsername());
+            ps.setString(2, street);
+            ps.setString(3, streetNr);
+            ps.setString(4, floor);
+            ps.setString(5, city);
+            ps.setString(6, zip);
+            ps.setString(7, country);
+            ps.execute();
+
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new CarportException("Could not place your order, try again later");
+
+        }
+
+    }
+
+    public static String checkAddress(User user) throws CarportException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "Select * FROM Addresses WHERE User_name = ?;";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, user.getUsername());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getString("User_name");
+
+            } else {
+                return null;
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new CarportException("Could not validate the Address");
+        }
+
     }
 
 }

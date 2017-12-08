@@ -4,7 +4,6 @@ import DBAccess.MaterialMapper;
 import DBAccess.UserMapper;
 import java.util.ArrayList;
 
-
 public class DomainFacade {
 
     public static User login(String username, String password) throws CarportException {
@@ -39,8 +38,8 @@ public class DomainFacade {
         return order;
     }
 
-    public static double getTotalPrice(Carport carport) throws CarportException {
-        return PriceCalculation.getTotalPrice(carport);
+    public static double getTotalPrice(ArrayList<PacklistObject> packlist) throws CarportException {
+        return PriceCalculation.CalculatePrice(packlist);
     
     }
 
@@ -49,6 +48,22 @@ public class DomainFacade {
         UserMapper.updateHas_Generated(user);
     
     
+    }
+
+    public static void saveAddress(User user, String street, String streetNr, String floor, String city, String zip, String country) throws CarportException {
+        UserMapper.saveAddress(user, street, streetNr, floor, city, zip, country);
+    
+    
+    
+    }
+
+    public static String checkAddress(User user) throws CarportException {
+       return UserMapper.checkAddress(user);
+    
+    }
+
+    public static ArrayList<PacklistObject> makePackList(Carport carport) throws CarportException {
+    return PacklistMaker.makePacklist(carport);
     }
 
 }
