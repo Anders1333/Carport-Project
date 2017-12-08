@@ -87,28 +87,36 @@ public class CarportDrawer {
         StringBuilder HTML = new StringBuilder(); 
         int shedStart = (carport.getLength() - 20) - carport.getShedDepth();  
         int shedDepth = carport.getShedDepth();
+        int width = carport.getWidth();
+        int length = carport.getLength();
+        int height = carport.getHeight();
         
         //--- Poles --- //
         
-        HTML.append(startPoles(carport));
-        HTML.append(poles(carport));
+        HTML.append(startPoles(width));
+        HTML.append(poles(width,length));
         
         //--- Shed --- //
         if(carport.getShedDepth()>0){
             
-        HTML.append(shedSpace(carport,shedStart,25,carport.getShedDepth(),carport.getWidth()-50));
-        HTML.append(shedPoles(carport,shedStart,shedDepth,carport.getWidth()));       
+        HTML.append(shedSpace(shedStart,25,shedDepth,width-50));
+        HTML.append(shedPoles(shedStart,shedDepth,width));       
         }
         
         //--- Rims --- //
         
-        HTML.append(rims(carport.getWidth(),carport.getLength()));
+        HTML.append(rims(width,length));
         
-        //--- Rafters --//
+        //--- Rafters ---//
         
-        HTML.append(rafters(carport,carport.getWidth(),carport.getHeight()));
+        HTML.append(rafters(width,length));
         
+        // --- Roof Rafters --- //
         
+        HTML.append(middleRoofRafter(width,length));
+        HTML.append(topRafterPair(width,length));
+        HTML.append(roofRafters1(width,length));
+        HTML.append(roofRafters2(width,length));
         
         
         
@@ -121,6 +129,46 @@ public class CarportDrawer {
     
     //---- Premade rects ---- //
     
+    public static String roofRafters2 (int width, int length){
+        String toAdd = "";
+        double areaToCover = (width/2) - 20;
+        double numberOfRafters = Math.ceil(areaToCover/35);
+        
+        for (int i = ((width/2)+20); i > 35 ; i-=35) {
+            toAdd += "<rect x=\"0\" y=\""+(i)+"\" stroke-width=\"1px\" width=\""+(length)+"\" height=\"3\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
+            
+        }
+        return toAdd;
+    }  
+    
+    
+    public static String roofRafters1 (int width,int length){
+        String toAdd = "";
+        double areaToCover = (width/2) - 20;
+        double numberOfRafters = Math.ceil(areaToCover/35);
+        
+        for (int i = 35; i < numberOfRafters*35 ; i+=35) {
+            toAdd += "<rect x=\"0\" y=\""+(i)+"\" stroke-width=\"1px\" width=\""+(length)+"\" height=\"3\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
+            
+        }
+        return toAdd;
+    }
+    
+    
+    public static String topRafterPair (int width, int length){
+        String toAdd = "<rect x=\"0\" y=\""+((width/2)-10)+"\" stroke-width=\"1px\" width=\""+(length)+"\" height=\"3\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
+        toAdd += "<rect x=\"0\" y=\""+((width/2)+7)+"\" stroke-width=\"1px\" width=\""+(length)+"\" height=\"3\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
+        return toAdd;
+    }
+    
+    
+    public static String middleRoofRafter (int width, int length){
+        double rafterLocation = (width/2)-2;
+      
+        
+        String toAdd = "<rect x=\"5\" y=\""+rafterLocation+"\" stroke-width=\"1px\" width=\""+(length-10)+"\" height=\"4\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
+        return toAdd;
+    }
     
     
     
@@ -128,16 +176,13 @@ public class CarportDrawer {
     
     
     
-    
-    
-    
-    public static String rafters (Carport carport,int width, int length){
-        double numberOfRafters = Math.ceil(carport.getLength()/89);
-        String toAdd = "<rect x=\"89\" y=\"0\" stroke-width=\"1px\" width=\"3\" height=\"" + (width) + "\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
+    public static String rafters (int width, int length){
+        double numberOfRafters = Math.ceil(length/89);
+        String toAdd = "<rect x=\"89\" y=\"0\" stroke-width=\"1px\" width=\"4\" height=\"" + (width) + "\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
 
         for (int i = 2; i <= numberOfRafters; i++) {
             int offset = i * 89;
-            toAdd += "<rect x=\"" + offset + "\" y=\"0\" stroke-width=\"1px\" width=\"3\" height=\"" + (width) + "\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
+            toAdd += "<rect x=\"" + offset + "\" y=\"0\" stroke-width=\"1px\" width=\"4\" height=\"" + (width) + "\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
         }
         
         
@@ -157,13 +202,13 @@ public class CarportDrawer {
                 + "   <rect x=\"5\" y=\"" + (width - 2.5) + "\" stroke-width=\"1px\" width=\"" + (length - 5) + "\" height=\"2.5\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
                 + "   \n"
                 + "   <rect x=\"0\" y=\"0\" stroke-width =\"1px\" width=\"5\" height=\"" + (width) + "\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
-                + "   <rect x=\"" + (length) + "\" y=\"0\" stroke-width =\"1px\" width=\"5\" height=\"" + (width) + "\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
+                + "   <rect x=\"" + (length-5) + "\" y=\"0\" stroke-width =\"1px\" width=\"5\" height=\"" + (width) + "\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
    
    return toAdd;
     }
     
  
-    public static String shedSpace (Carport carport,int x,int y,int width,int height){
+    public static String shedSpace (int x,int y,int width,int height){
         
         String toAdd = "<rect x=\"" + x + "\" y=\"" + y + "\" stroke-width=\"2px\" width=\"" + width + "\" height=\"" + height + "\" fill-opacity=\"1.0\" style=\"stroke:#000000; fill:#B45F04\"></rect>\n";
         return toAdd;
@@ -171,7 +216,7 @@ public class CarportDrawer {
     
     
     
-    public static String shedPoles(Carport carport,int shedstart, int shedDepth,int width){
+    public static String shedPoles(int shedstart, int shedDepth,int width){
         String toAdd =
                "   <rect x=\"" + shedstart + "\" y=\"25\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
                 + "   <rect x=\"" + (shedstart + shedDepth - 10) + "\" y=\"25\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
@@ -181,13 +226,13 @@ public class CarportDrawer {
     }
     
     
-    public static String poles(Carport carport){
+    public static String poles(int width, int length){
         
         String toAdd = "";
-      for (int i = 280; i < carport.getLength(); i += 200) {
+      for (int i = 280; i < length; i += 200) {
           
           toAdd +=    "   <rect x=\"" + i + "\" y=\"25\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
-                    + "   <rect x=\"" + i + "\" y=\"" + (carport.getWidth() - 35) + "\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
+                    + "   <rect x=\"" + i + "\" y=\"" + (width - 35) + "\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
                     + "   \n";
       }
       return toAdd;
@@ -195,11 +240,11 @@ public class CarportDrawer {
     
     
     
-    public static String startPoles(Carport carport){
+    public static String startPoles(int width){
        
         
         String toAdd = "   <rect x=\"80\" y=\"25\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n"
-                     + "   <rect x=\"80\" y=\"" + (carport.getWidth() - 35) + "\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
+                     + "   <rect x=\"80\" y=\"" + (width - 35) + "\" stroke-width=\"2px\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
             
           return toAdd;      
     }
