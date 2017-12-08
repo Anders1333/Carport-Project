@@ -10,7 +10,6 @@ public class Order {
     String username;
     double price;
     String date;
-    String status;
     //------ Stykliste variabler----//
     int length;
     int width;
@@ -18,12 +17,11 @@ public class Order {
     int shedDepth;
     double roofIncline;
 
-    public Order(int id, String username, double price, String date, String status) {
+    public Order(int id, String username, double price, String date) {
         this.id = id;
         this.username = username;
         this.price = price;
         this.date = date;
-        this.status = status;
     }
 
     public Order(int length, int width, int height, double roofIncline, int shedDepth) {
@@ -33,6 +31,8 @@ public class Order {
         this.roofIncline = roofIncline;
         this.shedDepth = shedDepth;
     }
+
+ 
 
     public int getLength() {
         return length;
@@ -61,7 +61,6 @@ public class Order {
                 + "<strong><p>" + "Username: </strong>" + username
                 + "<strong><p>" + "Price: </strong>" + price + ",-" + "</p>"
                 + "<strong><p>" + "Date: </strong>" + date + "</p>"
-                + "<strong><p>" + "Status: </strong>" + status + "</p>"
                 ;
     }
 
@@ -97,12 +96,6 @@ public class Order {
         this.date = date;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
+   
 
 }
