@@ -31,7 +31,7 @@ public class UserMapper {
             ps.setString(5, user.getRole());
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new CarportException(ex.getMessage());
+            throw new CarportException("Could not create user. Username may already exist");
         }
     }
 
