@@ -9,17 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/>
-
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-
         <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>        
+        <link href="css/stylesheet.css" rel="stylesheet" type="text/css"/>
         <title>Homepage</title>
     </head>
 
@@ -36,7 +33,7 @@
 
             <ul class="nav navbar-nav">
                 <li><a href="index.jsp" class="tabNavButton">Home</a></li>
-                <li><a href="contactPage.jsp" class="tabNavButton">KONTAKT OS</a></li>
+                <li><a href="contactPage.jsp" target="_blank" class="tabNavButton">KONTAKT OS</a></li>
             </ul>
         </nav>
 
@@ -99,7 +96,8 @@
                 </div>
             </div>
 
-            <div class="errorMessage">
+            <div class="errorMessage alert alert-dismissable">
+                <a style="right: 0 !important" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <% String error = (String) request.getAttribute("error");
                     if (error != null) {%>
                 <p><strong>Error!!</strong></p>
@@ -109,20 +107,13 @@
 
             <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
             <script src="js/loginregisterfader.js" type="text/javascript"></script>
+
             <script>
                 $(document).ready(function () {
                     $('.errorMessage').filter(function () {
-                        return $.trim($(this).text()).length <= 1
+                        return $.trim($(this).text()).length <= 2
                     }).hide()
                 });
-            </script>
-            <script>
-                $(document).ready(function () { 
-                    setTimeout(function () {
-                        $('.errorMessage').fadeOut('slow');
-                    }, 5000); // <-- time in milliseconds
-                });
-
             </script>
         </div>
     </body>
