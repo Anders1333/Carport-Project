@@ -63,10 +63,10 @@
 
         <br>
 
-    <svg width= "<%=carport.getLength()-50%>" height="<%=carport.getWidth()-50 %>" viewBox="0 0 <%=carport.getLength()+90%> <%=carport.getWidth()+90%>">
+    <svg width= "50%" viewBox="0 0 <%=carport.getLength()+90%> <%=carport.getWidth()+90%>">
         <%= CarportDrawer.createDrawing1(carport)%>
         </svg>
-    <svg width= "<%=carport.getLength()-50%>" height="<%=carport.getWidth()-50%>" viewBox="0 0 <%=carport.getLength()+90%> <%=carport.getWidth()+90%>">
+    <svg width= "50%" viewBox="0 0 <%=carport.getLength()+90%> <%=carport.getWidth()+90%>">
         <%= CarportDrawer.createDrawing2(carport)%>
         </svg>
         <svg width= "<%=carport.getLength()+20%>" height="<%=carport.getWidth()+20%>" viewBox="0 0 <%=carport.getLength()+20%> <%=carport.getHeight()*2.5%>">
