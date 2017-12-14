@@ -31,7 +31,10 @@ public class TestMain {
      
   
      
+     int length = 800;
+     int rest = 800%89;
      
+        System.out.println(rest);
      
        
      

@@ -17,7 +17,7 @@ public class UserGetter extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws CarportException {
-        request.setAttribute("currentPath", "employeepage.jsp");
+       
         ArrayList<User> userList = DomainFacade.getUsers();
         request.setAttribute( "userList", userList );
         
