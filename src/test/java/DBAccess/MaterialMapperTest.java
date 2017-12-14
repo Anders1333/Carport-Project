@@ -10,6 +10,7 @@ import FunctionLayer.CarportException;
 import FunctionLayer.DomainFacade;
 import FunctionLayer.Order;
 import FunctionLayer.PacklistObject;
+import FunctionLayer.PacklistMaker;
 import FunctionLayer.User;
 
 import java.util.ArrayList;
@@ -59,7 +60,6 @@ public class MaterialMapperTest {
         }
     }
 
-
     @Test
     public void testSaveOrders() throws CarportException {
         Carport carport = new Carport(300, 300, 300, 25, 60);
@@ -70,6 +70,16 @@ public class MaterialMapperTest {
     @Test(expected = CarportException.class)
     public void testGetMatiralWithWrongId() throws CarportException {
         MaterialMapper.getMaterial(777, 78, 9);
+    }
+
+    @Test
+    public void makePacklistTest() throws CarportException {
+        PacklistMaker pl = new PacklistMaker();
+        Carport carport = new Carport(300, 300, 300, 25, 60);
+        ArrayList<PacklistObject> packList = pl.makePacklist(carport);
+        PacklistObject nullList = null;
+        assertNotEquals(packList, nullList);
+
     }
 
 }

@@ -29,7 +29,8 @@ public class TestMain {
     
      ArrayList<PacklistObject> list = new ArrayList();
      
-  
+    int kage =700%420;
+        System.out.println(kage);
      
      
      
