@@ -20,7 +20,7 @@ public class placeOrder extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws CarportException {
-        request.setAttribute("currentPath", "inputpage.jsp");
+        
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         String street = request.getParameter("street");

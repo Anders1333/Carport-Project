@@ -44,6 +44,14 @@ public class CarportCalculator {
 
     }
 
+    
+    /**
+     * This method calculates the length from the side of the roof to the top. 
+     * The result depends on the height and angle of the roof.
+     * @param carport
+     * @return double
+     * @throws CarportException 
+     */
     public static double getInclineLength(Carport carport) throws CarportException {
 
         if (carport.getDegree() <= 0) {
@@ -77,23 +85,8 @@ public class CarportCalculator {
         return numberOfInclineSheetRound;
     }
 
-    public static double getRoofMeterial(Carport carport) throws CarportException {
-        double inclineSheetLength = getInclineLength(carport);
-        int area;
-        if (carport.getDegree() <= 0) {
-            area = (carport.getWidth() * carport.getLength());
-        } else if (carport.getDegree() >= 90) {
-            throw new CarportException("This roof is not buildable");
-        } else {
-            area = (int) ((inclineSheetLength * carport.getLength()) * 2);
-        }
-        int meterial = (area / 1000);
-        if (area % 100 > 0) {
-            meterial += 2;
-        }
-        return meterial;
-
-    }
+    
+  
 
     //------------------- BUILDING CALCULATIONS --------------------//
     public static double getSkeletonPostsLengthShort(Carport carport) {

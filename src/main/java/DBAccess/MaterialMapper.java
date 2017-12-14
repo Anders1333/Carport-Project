@@ -23,25 +23,13 @@ import java.sql.SQLException;
  */
 public class MaterialMapper {
 
-    public static double getPrice(int id) throws CarportException {
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT Material_price from Materials WHERE Material_id = ?;";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, id);
 
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                double materialPrice = rs.getFloat("Material_price");
-                return materialPrice;
-            } else {
-                throw new CarportException("Could not validate user");
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new CarportException(ex.getMessage());
-        }
-    }
-
+    /**
+     * This method returns a single order from a given orderID.
+     * @param orderId
+     * @return Order
+     * @throws CarportException 
+     */
     public static Order getSingleOrder(int orderId) throws CarportException {
 
         try {
@@ -69,6 +57,15 @@ public class MaterialMapper {
 
     }
 
+    
+    /**
+     * This method saves a Users order in the database. The order consists of 
+     * the measurements given by the user on the InputPage, along with a
+     * calculated price and the users Username.
+     * @param carport
+     * @param user
+     * @throws CarportException 
+     */
     public static void saveOrder(Carport carport, User user) throws CarportException {
         try {
             Connection con = Connector.connection();
@@ -85,11 +82,18 @@ public class MaterialMapper {
             ps.setInt(7, carport.getShedDepth());
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new CarportException("Kunne ikke placere sdin order");
+            throw new CarportException("Kunne ikke placere din order");
         }
 
     }
-
+    /**
+     * This method creates a PackListObject from a given materials ID, amount and length 
+     * @param materialId
+     * @param amount
+     * @param length
+     * @return PackListObject
+     * @throws CarportException 
+     */
     public static PacklistObject getMaterial(int materialId, int amount, double length) throws CarportException {
         try {
             Connection con = Connector.connection();

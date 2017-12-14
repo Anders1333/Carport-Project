@@ -7,24 +7,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "FrontController", urlPatterns = {"/FrontController"})
 public class FrontController extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * This method checks which command is sent from a form (ex. "login") and
+     * executes the coresponding servlet. If the command does not exist, an
+     * exception is thrown and the user is returned to the frontpage.
      *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     */
-    /*
-      Denne metode checker hvilken command der er blevet sendt fra forms (eks."login")
-      * Derefter kører den den gældende servlet for commanden. 
-      * Hvis command ikke findes, smides der en exception og man sendes tilbage til forsiden.
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -33,13 +28,12 @@ public class FrontController extends HttpServlet {
             Command action = Command.from(request);
             // "action.execute" becomes eks. "register.execute"
             String view = action.execute(request, response);
-            // This execution has a return value. for register it is "role + page".
+            // Executes the command. This execution has a return value. for register it is "role + page".
             request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
-            // So we end up in the page for which role the user is registered as.
+            // So here we end up in the page for which role the user is registered as.
         } catch (CarportException ex) {
-            //HttpSession session = request.getSession();
+            
             request.setAttribute("error", ex.getMessage());
-            //request.getRequestDispatcher((String)request.getAttribute("currentPath")).forward(request, response);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }

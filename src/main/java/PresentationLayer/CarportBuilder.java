@@ -18,8 +18,9 @@ public class CarportBuilder extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws CarportException {
+        
         HttpSession session = request.getSession();
-        request.setAttribute("currentPath", "inputpage.jsp");
+        
         User user = (User) session.getAttribute("user");
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
