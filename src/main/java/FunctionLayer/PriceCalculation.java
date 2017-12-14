@@ -13,6 +13,12 @@ import java.util.ArrayList;
  */
 public class PriceCalculation {
 
+    /**
+     * A simple method that calculates a price from an ArrayList
+     * of PacklistObjects.
+     * @param packlist
+     * @return double 
+     */
     public static double CalculatePrice(ArrayList<PacklistObject> packlist) {
 
         double price = 0;

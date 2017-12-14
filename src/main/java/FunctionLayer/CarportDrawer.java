@@ -11,6 +11,15 @@ package FunctionLayer;
  */
 public class CarportDrawer {
 
+    
+    
+    /**
+     * This method creates a String, that in HTML translates into 
+     * SVG information, creating a drawing of a flat carport.
+     * @param carport
+     * @return String
+     * @throws CarportException 
+     */
     public static String createDrawing1(Carport carport) throws CarportException {
 
         int length = carport.getLength();
@@ -68,10 +77,55 @@ public class CarportDrawer {
                 + "    <line x1=\"55\" y1=\"0\" x2=\"" + (shedStart) + "\" y2=\"" + (width) + "\" style=\"stroke:rgb(80,80,80);stroke-width:2\" />\n"
                 + "    <line x1=\"55\" y1=\"" + (width) + "\" x2=\"" + (shedStart) + "\" y2=\"0\" style=\"stroke:rgb(80,80,80);stroke-width:2\" />\n";
 
+        
+          
+        //--- small sections ---//
+        drawingHTML += "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length) + "\" y1=\"" + (width + 10) + "\" x2=\"" + (length) + "\" y2=\"" + (width + 30) + "\"></line>\n";
+
+        for (int i = 1; i < length; i += 55) {
+            drawingHTML += "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (i) + "\" y1=\"" + (width + 20) + "\" x2=\"" + (i + 55) + "\" y2=\"" + (width + 20) + "\"></line>\n"
+                    + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (i) + "\" y1=\"" + (width + 10) + "\" x2=\"" + (i) + "\" y2=\"" + (width + 30) + "\"></line>\n";
+        }
+            
+
+        //--- big bottom --- //
+        drawingHTML += "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (0) + "\" y1=\"" + (width + 50) + "\" x2=\"" + (length) + "\" y2=\"" + (width + 50) + "\"></line>\n"
+                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (0) + "\" y1=\"" + (width + 40) + "\" x2=\"" + (0) + "\" y2=\"" + (width + 60) + "\"></line>\n"
+                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length) + "\" y1=\"" + (width + 40) + "\" x2=\"" + (length) + "\" y2=\"" + (width + 60) + "\"></line>\n";
+
+        //--- SideLine --- //
+        drawingHTML += "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 25) + "\" y1=\"" + (0) + "\" x2=\"" + (length + 25) + "\" y2=\"" + (width) + "\"></line>\n"
+                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 15) + "\" y1=\"" + (0) + "\" x2=\"" + (length + 35) + "\" y2=\"" + (0) + "\"></line>\n"
+                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 15) + "\" y1=\"" + (width) + "\" x2=\"" + (length + 35) + "\" y2=\"" + (width) + "\"></line>\n"
+                + "<text x=\"" + (length + 35) + "\" y=\"" + ((width / 2) + 10) + "\" font-family=\"sans-serif\" font-size=\"25px\" fill=\"black\">" + width + " " + "cm" + "</text>";
+
+        //--- numbers --- //
+        drawingHTML += "<text x=\"" + ((length / 2) - 10) + "\" y=\"" + (width + 70) + "\" font-family=\"sans-serif\" font-size=\"20px\" fill=\"black\">" + length + " " + "cm" + "</text>";
+        for (int i = 36; i < length-55; i += 55) {
+            drawingHTML += "<text x=\"" + (i-20) + "\" y=\"" + (width + 37) + "\" font-family=\"sans-serif\" font-size=\"18px\" fill=\"black\">" + 55 + "</text>";
+        }
+        if(length%55 !=0){
+        drawingHTML += "<text x=\"" + (length-40) + "\" y=\"" + (width + 37) + "\" font-family=\"sans-serif\" font-size=\"18px\" fill=\"black\">" + (length%55) + "</text>";
+        }
         return drawingHTML;
     }
-
-    //--------------------- Carport with Roof -------------------------//
+        
+        
+        
+     //--------------------- Carport with Roof ---------------------------//
+    
+    
+    //-----------------------PROPER CODE ----------------------------------//
+    
+    
+    /**
+     * This method creates a long String by appending lines of SVG code to a 
+     * StringBuilder. The SVG lines are generated from small seperate methods
+     * that depend on a Carports measurements. The returned String translates
+     * into a drawing of a carport with roof.
+     * @param carport
+     * @return String
+     */
     public static String createDrawing2(Carport carport) {
 
         StringBuilder HTML = new StringBuilder();
@@ -114,6 +168,8 @@ public class CarportDrawer {
     }
 
     //------------------------- Carport SideView ---------------------------//
+    
+
     public static String createDrawing3(Carport carport) throws CarportException {
         CarportCalculator cc = new CarportCalculator();
 
@@ -149,15 +205,15 @@ public class CarportDrawer {
                 + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"0\" y1=\"" + (heightOfRoof + height + 50) + "\" x2=\"0\" y2=\"" + (height + heightOfRoof + 30) + "\"></line>\n"
                 + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length) + "\" y1=\"" + (heightOfRoof + height + 50) + "\" x2=\"" + (length) + "\" y2=\"" + (height + heightOfRoof + 30) + "\"></line>\n";
 
-        toAdd += "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (-55) + "\" y1=\"0\" x2=\"" + (-55) + "\" y2=\"" + (height + heightOfRoof) + "\"></line>\n"
-                + "<text x=\"" + (-200) + "\" y=\"" + ((height + heightOfRoof) / 2) + "\" font-family=\"sans-serif\" font-size=\"30px\" fill=\"black\">" + ((height + heightOfRoof) + " " + "cm") + "</text>"
-                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (-65) + "\" y1=\"0\" x2=\"" + (-45) + "\" y2=\"0\"></line>\n"
-                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (-65) + "\" y1=\"" + (height + heightOfRoof) + "\" x2=\"" + (-45) + "\" y2=\"" + (height + heightOfRoof) + "\"></line>\n";
+        toAdd += "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length+130) + "\" y1=\"0\" x2=\"" + (length+130) + "\" y2=\"" + (height + heightOfRoof) + "\"></line>\n"
+                + "<text x=\"" + (length+135) + "\" y=\"" + ((height + heightOfRoof) / 2) + "\" font-family=\"sans-serif\" font-size=\"25px\" fill=\"black\">" + ((height + heightOfRoof) + " " + "cm") + "</text>"
+                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length+120) + "\" y1=\"0\" x2=\"" + (length+140) + "\" y2=\"0\"></line>\n"
+                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length+120) + "\" y1=\"" + (height + heightOfRoof) + "\" x2=\"" + (length+140) + "\" y2=\"" + (height + heightOfRoof) + "\"></line>\n";
 
-        toAdd += "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 55) + "\" y1=\"" + (heightOfRoof) + "\" x2=\"" + (length + 55) + "\" y2=\"" + (height + heightOfRoof) + "\"></line>\n"
-                + "<text x=\"" + (length + 75) + "\" y=\"" + (((height + heightOfRoof) / 2) + 60) + "\" font-family=\"sans-serif\" font-size=\"30px\" fill=\"black\">" + height + " " + "cm" + "</text>"
-                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 65) + "\" y1=\"" + (heightOfRoof) + "\" x2=\"" + (length + 45) + "\" y2=\"" + (heightOfRoof) + "\"></line>\n"
-                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 65) + "\" y1=\"" + (heightOfRoof + height) + "\" x2=\"" + (length + 45) + "\" y2=\"" + (heightOfRoof + height) + "\"></line>\n";
+        toAdd += "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 25) + "\" y1=\"" + (heightOfRoof) + "\" x2=\"" + (length + 25) + "\" y2=\"" + (height + heightOfRoof) + "\"></line>\n"
+                + "<text x=\"" + (length + 30) + "\" y=\"" + (((height + heightOfRoof) / 2) + 60) + "\" font-family=\"sans-serif\" font-size=\"25px\" fill=\"black\">" + height + " " + "cm" + "</text>"
+                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 35) + "\" y1=\"" + (heightOfRoof) + "\" x2=\"" + (length + 15) + "\" y2=\"" + (heightOfRoof) + "\"></line>\n"
+                + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 35) + "\" y1=\"" + (heightOfRoof + height) + "\" x2=\"" + (length + 15) + "\" y2=\"" + (heightOfRoof + height) + "\"></line>\n";
 
         return toAdd;
 
@@ -173,6 +229,15 @@ public class CarportDrawer {
         return toAdd;
     }
 
+    /**
+     * This is an example of one of many small methods that generates SVG code
+     * depending on inserted measurements.
+     * @param shedStart
+     * @param shedDepth
+     * @param heightOfRoof
+     * @param height
+     * @return String
+     */
     public static String shedSide(int shedStart, int shedDepth, double heightOfRoof, int height) {
         String toAdd = "<rect x=\"" + (shedStart) + "\" y=\"" + (heightOfRoof) + "\" stroke-width=\"2px\" width=\"" + (shedDepth) + "\" height=\"" + (height) + "\" style=\"stroke:#000000; fill:#FE9A2E\"></rect>\n";
         return toAdd;
@@ -194,6 +259,7 @@ public class CarportDrawer {
         return toAdd;
     }
 
+  
     public static String polesSide(int length, int height, double heightOfRoof, int shedStart, int shedDepth) {
         int backMargin = 25;
         int depth = 0;
@@ -226,6 +292,7 @@ public class CarportDrawer {
             toAdd += "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (i) + "\" y1=\"" + (width + 20) + "\" x2=\"" + (i + 89) + "\" y2=\"" + (width + 20) + "\"></line>\n"
                     + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (i) + "\" y1=\"" + (width + 10) + "\" x2=\"" + (i) + "\" y2=\"" + (width + 30) + "\"></line>\n";
         }
+            
 
         //--- big bottom --- //
         toAdd += "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (0) + "\" y1=\"" + (width + 50) + "\" x2=\"" + (length) + "\" y2=\"" + (width + 50) + "\"></line>\n"
@@ -236,12 +303,15 @@ public class CarportDrawer {
         toAdd += "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 25) + "\" y1=\"" + (0) + "\" x2=\"" + (length + 25) + "\" y2=\"" + (width) + "\"></line>\n"
                 + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 15) + "\" y1=\"" + (0) + "\" x2=\"" + (length + 35) + "\" y2=\"" + (0) + "\"></line>\n"
                 + "<line style =\"stroke: black; stroke-width: 2px;\" x1=\"" + (length + 15) + "\" y1=\"" + (width) + "\" x2=\"" + (length + 35) + "\" y2=\"" + (width) + "\"></line>\n"
-                + "<text x=\"" + (length + 35) + "\" y=\"" + ((width / 2) + 10) + "\" font-family=\"sans-serif\" font-size=\"30px\" fill=\"black\">" + width + " " + "cm" + "</text>";
+                + "<text x=\"" + (length + 35) + "\" y=\"" + ((width / 2) + 10) + "\" font-family=\"sans-serif\" font-size=\"25px\" fill=\"black\">" + width + " " + "cm" + "</text>";
 
         //--- numbers --- //
         toAdd += "<text x=\"" + ((length / 2) - 10) + "\" y=\"" + (width + 70) + "\" font-family=\"sans-serif\" font-size=\"20px\" fill=\"black\">" + length + " " + "cm" + "</text>";
-        for (int i = 36; i < length; i += 89) {
+        for (int i = 36; i < length-89; i += 89) {
             toAdd += "<text x=\"" + (i) + "\" y=\"" + (width + 37) + "\" font-family=\"sans-serif\" font-size=\"18px\" fill=\"black\">" + 89 + "</text>";
+        }
+        if(length%89 !=0){
+        toAdd += "<text x=\"" + (length-40) + "\" y=\"" + (width + 37) + "\" font-family=\"sans-serif\" font-size=\"18px\" fill=\"black\">" + (length%89) + "</text>";
         }
         return toAdd;
     }

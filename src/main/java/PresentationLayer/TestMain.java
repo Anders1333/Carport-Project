@@ -32,7 +32,10 @@ public class TestMain {
     int kage =700%420;
         System.out.println(kage);
      
+     int length = 800;
+     int rest = 800%89;
      
+        System.out.println(rest);
      
        
      

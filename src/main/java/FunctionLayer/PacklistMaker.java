@@ -14,6 +14,15 @@ import java.util.ArrayList;
  */
 public class PacklistMaker {
 
+    
+    /**
+     * This method generates an ArrayList of PacklistObjects from a given 
+     * Carport. Each addition to the list is made by calling a smaller method 
+     * that returns a PacklistObject.
+     * @param carport
+     * @return ArrayList
+     * @throws CarportException 
+     */
     public static ArrayList<PacklistObject> makePacklist(Carport carport) throws CarportException {
 
         ArrayList<PacklistObject> packList = new ArrayList<>();
@@ -65,6 +74,17 @@ public class PacklistMaker {
     }
 
 //---------------------- Methods ------------------------//
+    
+    /**
+     * One of many methods used in our PacklistMaker to generate our packlist.
+     * The method creates the object by first calculating the amount and length
+     * of the materials needed, and then calling the getMaterial method from our
+     * MaterialMapper class. This in turn returns a PacklistObject with all the
+     * information needed.
+     * @param carport
+     * @return PacklistObject
+     * @throws CarportException 
+     */
     public static PacklistObject ekstraRaftersForRoof(Carport carport) throws CarportException {
         CarportCalculator cc = new CarportCalculator();
         int id = 35;
