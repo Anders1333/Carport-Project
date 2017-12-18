@@ -64,6 +64,17 @@ public class UserMapperTest {
     }
 
     @Test
+    public void testGetUsers() throws CarportException{
+        ArrayList<User> userList = UserMapper.getUsers();
+        assertNotEquals(userList, null);
+    }
+    @Test
+    public void testGetGeneretedOrder() throws CarportException{
+        ArrayList<User> userList = UserMapper.getUsers();
+        assertNotEquals(userList, null);
+    }
+    
+    @Test
     public void testLogin01() throws CarportException {
         // Can we log in
         User user = UserMapper.login("Thomas", "fun");
@@ -94,5 +105,7 @@ public class UserMapperTest {
         DomainFacade.createUser(null, null, null, null, null);
         User retrieved = UserMapper.login("JohannesFog", "CarportIsLife");
     }
+    
+    
 
 }
