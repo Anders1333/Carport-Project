@@ -7,12 +7,9 @@ package DBAccess;
 
 import FunctionLayer.Carport;
 import FunctionLayer.CarportException;
-import FunctionLayer.DomainFacade;
-import FunctionLayer.Order;
 import FunctionLayer.PacklistObject;
 import FunctionLayer.PacklistMaker;
 import FunctionLayer.User;
-
 import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +18,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.smartcardio.CardNotPresentException;
+
 
 /**
  *

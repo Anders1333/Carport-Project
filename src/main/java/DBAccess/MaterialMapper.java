@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DBAccess;
 
 import FunctionLayer.Carport;
-import FunctionLayer.CarportCalculator;
 import FunctionLayer.CarportException;
-import FunctionLayer.DomainFacade;
 import FunctionLayer.Order;
 import FunctionLayer.PacklistObject;
 import FunctionLayer.User;

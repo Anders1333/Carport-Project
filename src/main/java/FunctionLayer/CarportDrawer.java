@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package FunctionLayer;
 
 /**
@@ -24,8 +20,6 @@ public class CarportDrawer {
 
         int length = carport.getLength();
         int width = carport.getWidth();
-        int height = carport.getHeight();
-        double roofIncline = carport.getDegree();
         int shedDepth = carport.getShedDepth();
         double numberOfRafters = Math.ceil(carport.getLength() / 55);
         int shedStart = (carport.getLength() - 20) - shedDepth;
@@ -133,7 +127,7 @@ public class CarportDrawer {
         int shedDepth = carport.getShedDepth();
         int width = carport.getWidth();
         int length = carport.getLength();
-        int height = carport.getHeight();
+       
 
         //--- Poles --- //
         //HTML.append(startPoles(width,length,shedDepth));
@@ -176,7 +170,6 @@ public class CarportDrawer {
         StringBuilder HTML = new StringBuilder();
         int shedStart = (carport.getLength() - 20) - carport.getShedDepth();
         int shedDepth = carport.getShedDepth();
-        int width = carport.getWidth();
         int length = carport.getLength();
         int height = carport.getHeight();
         double heightOfRoof = cc.getRoofHeight(carport);
