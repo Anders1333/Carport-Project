@@ -1,10 +1,6 @@
 package FunctionLayer;
 
-/**
- * The purpose of User is to...
- *
- * @author AndersHC
- */
+
 public class User {
 
     private String phone;
