@@ -1,43 +1,35 @@
 package FunctionLayer;
 
-/**
- * The purpose of User is to...
- * @author AndersHC
- */
+
 public class User {
 
-
-    private int id; // just used to demo retrieval of autogen keys in UserMapper
     private String phone;
     private String username;
     private String email;
-    private String password; // Should be hashed and all
+    private String password;
     private String role;
     private String generated;
-
 
     public User(String username, String password, String role) {
         this.username = username;
         this.password = password;
         this.role = role;
     }
-    
 
-    public User( String username, String email, String password,String phone, String role, String generated ) {
+    public User(String username, String email, String password, String phone, String role, String generated) {
         this.phone = phone;
         this.username = username;
         this.email = email;
         this.password = password;
         this.role = role;
         this.generated = generated;
-        
+
     }
 
     public String getGenerated() {
         return generated;
     }
 
-    
     public String getPhone() {
         return phone;
     }
@@ -53,14 +45,12 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
-    
-    
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail( String email ) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -68,7 +58,7 @@ public class User {
         return password;
     }
 
-    public void setPassword( String password ) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -76,22 +66,13 @@ public class User {
         return role;
     }
 
-    public void setRole( String role ) {
+    public void setRole(String role) {
         this.role = role;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId( int id ) {
-        this.id = id;
     }
 
     @Override
     public String toString() {
-        return  "Username: " + username + "<br>Phone: " + phone + "<br>Email: " + email;
+        return "Username: " + username + "<br>Phone: " + phone + "<br>Email: " + email;
     }
-    
 
 }

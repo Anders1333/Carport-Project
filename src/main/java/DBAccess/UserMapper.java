@@ -7,18 +7,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * The purpose of UserMapper is to...
- *
- * @author AndersHC
- */
+
+
+
+
 public class UserMapper {
 
+    
+    /**
+     * This method saves a User in the database by inserting information from 
+     * the RegisterPage.
+     * @param user
+     * @throws CarportException 
+     */
     public static void createUser(User user) throws CarportException {
         try {
             Connection con = Connector.connection();
@@ -31,10 +36,21 @@ public class UserMapper {
             ps.setString(5, user.getRole());
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new CarportException(ex.getMessage());
+            throw new CarportException("Could not create user. Username may already exist");
         }
     }
 
+    
+    
+    
+    /**
+     * This method "logs-in" the user. It returns a new User object based on 
+     * a users information in the database. The users role is the main target.
+     * @param username
+     * @param password
+     * @return User
+     * @throws CarportException 
+     */
     public static User login(String username, String password) throws CarportException {
         try {
             Connection con = Connector.connection();
@@ -58,6 +74,14 @@ public class UserMapper {
         }
     }
 
+    
+    
+    /**
+     * This method creates an ArrayList of Users in the database. Only users
+     * that have the role "customer" are inserted.
+     * @return ArrayList 
+     * @throws CarportException 
+     */
     public static ArrayList<User> getUsers() throws CarportException {
 
         try {
@@ -87,6 +111,16 @@ public class UserMapper {
 
     }
 
+    
+    
+    /**
+     * This method returns an ArrayList of All orders for a single User. The name 
+     * stems from the fact that we have already checked that the user has 
+     * generated orders (that are unfinished).
+     * @param username
+     * @return ArrayList
+     * @throws CarportException 
+     */
     public static ArrayList<Order> getGeneratedOrders(String username) throws CarportException {
         try {
             Connection con = Connector.connection();
@@ -115,6 +149,14 @@ public class UserMapper {
 
     }
 
+    
+    
+    /**
+     * This method updates a Users status in the database in the Users table to
+     * show that the user has generated an order.
+     * @param user
+     * @throws CarportException 
+     */
     public static void updateHas_Generated(User user) throws CarportException {
         try {
             Connection con = Connector.connection();
@@ -130,6 +172,19 @@ public class UserMapper {
         }
     }
 
+    
+    
+    /**
+     * This method saves a persons address information in the database. 
+     * @param user
+     * @param street
+     * @param streetNr
+     * @param floor
+     * @param city
+     * @param zip
+     * @param country
+     * @throws CarportException 
+     */
     public static void saveAddress(User user, String street, String streetNr, String floor, String city, String zip, String country) throws CarportException {
         try {
 
@@ -154,6 +209,14 @@ public class UserMapper {
 
     }
 
+    
+    /**
+     * This method checks if the user has registered his/her address information
+     * already.
+     * @param user
+     * @return String
+     * @throws CarportException 
+     */
     public static String checkAddress(User user) throws CarportException {
         try {
             Connection con = Connector.connection();

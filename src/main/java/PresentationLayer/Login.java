@@ -14,7 +14,7 @@ public class Login extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws CarportException {
 
         HttpSession session = request.getSession();
-        request.setAttribute("currentPath", "index.jsp");
+    
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = DomainFacade.login(username, password);
