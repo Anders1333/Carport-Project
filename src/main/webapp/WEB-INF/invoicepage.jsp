@@ -12,6 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>TAK FOR DIN BESTILLING! DU VIL HØRRER FRA EN AF VORES MEDARBEJDER SNAREST</h1>
+        <h1>Tak for bestilling.</h1>
+        <h4>Du vil høre fra en medarbejder snarest.</h4>
+        <p>Hvis du ønsker at kontakte Johannes Fog kan du gøre det <a href="./contactPage.html">HER</a>.</p>
     </body>
 </html>

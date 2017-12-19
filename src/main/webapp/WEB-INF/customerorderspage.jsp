@@ -73,11 +73,6 @@
         <div>
             <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
             <script src="./js/empfaderjs.js" type="text/javascript"></script>
-            <script>
-                function goBack() {
-                    window.history.back();
-                }
-            </script>
         </div>
     </div>
 </body>
