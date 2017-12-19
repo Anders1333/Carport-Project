@@ -4,7 +4,9 @@ package DBAccess;
 import FunctionLayer.Carport;
 import FunctionLayer.CarportException;
 import FunctionLayer.Order;
+import FunctionLayer.PacklistMaker;
 import FunctionLayer.PacklistObject;
+import FunctionLayer.PriceCalculation;
 import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -68,7 +70,7 @@ public class MaterialMapper {
                     + "VALUES (?,?,?,?,?,?,?);";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, user.getUsername());
-            ps.setDouble(2, 100);
+            ps.setDouble(2, PriceCalculation.CalculatePrice(PacklistMaker.makePacklist(carport)));
             ps.setInt(3, carport.getLength());
             ps.setInt(4, carport.getWidth());
             ps.setInt(5, carport.getHeight());

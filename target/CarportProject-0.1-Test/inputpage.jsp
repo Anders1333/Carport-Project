@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Tilføj skur (Husk at opgive skurets længde hvis du ønsker skur.</label>
+                                <label>Tilføj skur (Husk at opgive skurets dybde).</label>
                                 <input style="width: 20px; height: 20px" id='skur' type="checkbox" name="toolshed" value="1" >
                                 <input id='skurhidden' type="hidden" name="toolshed" value="0" >
                             </div>

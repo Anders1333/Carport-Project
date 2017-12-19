@@ -16,45 +16,12 @@
         <% Carport carport = (Carport) request.getAttribute("carport");%>
     </head>
     <body>
-        <h1>The total price is:</h1>
+       
 
         
+        <h2> Pris for carport : <%= request.getAttribute("price") %> </h2>
 
-        
-        <form  name="placeOrder" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="placeOrder">
-            <input type="text" name="street" placeholder="Vejnavn"><br>
-            <input type="text" name="streetNr" placeholder="VejNr"><br>
-            <input type="text" name="floor" placeholder="Etage"><br>
-            <input type="text" name="city" placeholder="By"><br>
-            <input type="text" name="zip" placeholder="PostNr"><br>
-            <input type="text" name="country" placeholder="Land"><br>
-            <input type="submit" value="Bestil">
-        </form>
-        
-        
-        
-        
-        
-        
-        
-        
-
-
-        
-
-
-
-        HERE GOES YOUR PRICE
-        <%= request.getAttribute("price") %>
-
-        <br>
-        HERE GOES YOUR DRAWING
-        <br>
-        <br>
-        CARPORT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        <br>
-        <%=carport.getShedDepth()%>
+       
 
 
 
@@ -70,6 +37,21 @@
         <%= CarportDrawer.createDrawing3(carport)%>
         </svg>
 
+        <h3>Har du spørgsmål eller ønsker? Kontakt vores eksperter: 44556677</h3>
+        
+        <h3>Hvis du ønsker denne carport, indtast venligst leverings-addresse:</h3>
+        <br>
+               
+        <form  name="placeOrder" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="placeOrder">
+            <input type="text" name="street" placeholder="Vejnavn"><br>
+            <input type="text" name="streetNr" placeholder="VejNr"><br>
+            <input type="text" name="floor" placeholder="Etage"><br>
+            <input type="text" name="city" placeholder="By"><br>
+            <input type="text" name="zip" placeholder="PostNr"><br>
+            <input type="text" name="country" placeholder="Land"><br>
+            <input type="submit" value="Bestil">
+        </form>
 
     </body>
 </html>
